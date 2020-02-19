@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+
+/** Form styling**/
+.formBody {
+  border: 1px solid black ;
+  width: 75%;
+  margin: auto;
+  padding: 5%;
+}
+.formHeader {
+  color: #444888;
+  text-align: center;
+  color: #305F91;
+}
+hr {
+  border-bottom: .5px solid #000000;
+}
+.formButton {
+  margin: .5rem;
+  background-color: coral;
+}
+.formSubmitContainer {
+  padding-top: 2rem;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+.formSubmitContainer h4{
+  color: #305F91;
+}
+.formButtonSubmit {
+  background-color: coral;
+  margin: auto;
+  width: 50%;
+  margin-top: .5rem
+}

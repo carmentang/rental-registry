@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import React, { Component } from 'react';
-import PropertyDetails from './PropertyDetails';
+import Details from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
 
@@ -17,26 +17,26 @@ export class FormContainer extends Component {
     zipcode: '',
     units: [
       {
-      id: Number,
-      bedrooms: Number,
-      bathrooms: Number,
-      occupancyStatus: '',
-      monthOccupied: '',
-      yearOccupied: '',
-      monthsRented: Number,
-      vacancyDays: Number,
-      previousJanRent: '',
-      currentJanRent: '',
-      collectedJanUtil: '',
-      monthRentChanged: '',
-      dateRentChanged: '',
-      evictions: Number,
-      evictionReasons: '',
+        id: Number,
+        bedrooms: Number,
+        bathrooms: Number,
+        occupancyStatus: '',
+        monthOccupied: '',
+        yearOccupied: '',
+        monthsRented: Number,
+        vacancyDays: Number,
+        previousJanRent: '',
+        currentJanRent: '',
+        collectedJanUtil: '',
+        monthRentChanged: '',
+        dateRentChanged: '',
+        evictions: Number,
+        evictionReasons: '',
       }
     ],
   }
-  
-  adduser = (unit) => {
+
+  addUser = (unit) => {
     unit.id = this.state.units.length + 1
     this.setState([...this.state.units, unit])
   }
@@ -116,7 +116,7 @@ export class FormContainer extends Component {
 
     switch (step) {
       case 1:
-        return <PropertyDetails
+        return <Details
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}
