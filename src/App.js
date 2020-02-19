@@ -4,13 +4,13 @@ import About from './components/About';
 import Home from './components/Home';
 import FormContainer from './components/FormContainer';
 
-import {  Switch, Route } from 'react-router-dom'; // sets up routing
+import { Switch, Route } from 'react-router-dom'; // sets up routing
 class App extends Component {
   constructor() {
     super();
     this.state = {}
   }
-  
+
   render() {
     return (
       <div className="wrapper">
