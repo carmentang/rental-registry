@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import React, { Component } from 'react';
-import Details from './OwnerDetails';
+import OwnerDetails from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
 
@@ -116,7 +116,7 @@ export class FormContainer extends Component {
 
     switch (step) {
       case 1:
-        return <Details
+        return <OwnerDetails
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}

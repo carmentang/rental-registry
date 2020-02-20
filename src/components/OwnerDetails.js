@@ -11,7 +11,7 @@ const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI"
 const statesList = states.map((state) =>
   <option>{state}</option>
 )
-export class PropertyDetails extends Component {
+export class OwnerDetails extends Component {
   saveAndContinue = (e) => {
     e.preventDefault()
     this.props.nextStep()
@@ -106,6 +106,6 @@ export class PropertyDetails extends Component {
   }
 }
 
-export default PropertyDetails
+export default OwnerDetails
 
 
