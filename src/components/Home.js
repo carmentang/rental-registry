@@ -7,7 +7,7 @@ import AboutButton from './AboutButton';
 export class Home extends Component {
   render() {
     return (
-      <div class="wrapper">
+      <div className="wrapper">
         <Header />
         <div className="homepage">
           <h1 className="homepage-title">California Rental Registry</h1>

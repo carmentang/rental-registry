@@ -31,7 +31,7 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
   <option>{evicted}</option>
 )
 
-const UnitDetails = inject('RentalDataStore')(observer(class UnitDetails extends Component {
+const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   addAnotherUnit = (e) => {
     e.preventDefault()
     // add a new form column
