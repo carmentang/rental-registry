@@ -31,7 +31,7 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
   <option>{evicted}</option>
 )
 
-const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
+const UnitDetails = inject('RentalDataStore')(observer(class UnitDetails extends Component {
   addAnotherUnit = (e) => {
     e.preventDefault()
     // add a new form column
@@ -41,8 +41,9 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
     e.preventDefault()
     // submit function
   }
+  
   render() {
-    const { values } = this.props;
+    const { values } = this.props
     return (
       <React.Fragment>
         <Header />

@@ -12,7 +12,7 @@ const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI"
 const statesList = states.map((state) =>
   <option>{state}</option>
 )
-const OwnerDetails = inject('store')(observer(class OwnerDetails extends Component {
+const OwnerDetails = inject('RentalDataStore')(observer(class OwnerDetails extends Component {
   saveAndContinue = (e) => {
     e.preventDefault()
     this.props.nextStep()
@@ -22,10 +22,11 @@ const OwnerDetails = inject('store')(observer(class OwnerDetails extends Compone
   }
 
   render() {
-    const { values } = this.props;
+    const { values } = this.props.store.OwnerAndPropertyData;
+
     return (
       <React.Fragment>
-        <Header />  
+        <Header />
 
         <Form className="formBody">
           <h1 className="formHeader">Submit New Rental Registry Form</h1>

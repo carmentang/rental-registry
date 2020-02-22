@@ -44,7 +44,7 @@ export default class RentalDataStore {
     this.zipCode = data.zipCode;
   }
 
-  setHasMulitipleUnits(event) {
+  setHasMultipleUnits(event) {
     this.hasMultipleUnits = event.hasMultipleUnits;
   }
 
@@ -99,7 +99,7 @@ decorate(RentalDataStore, {
   hasMultipleUnits: observable,
   unitData: observable,
   storeOwnerAndPropertyData: action,
-  setHasMulitipleUnits: action,
+  setHasMultipleUnits: action,
   addRentalUnit: action,
   sendDataToNetlify: action,
 });
@@ -140,3 +140,4 @@ class RentalUnitData {
     this.evictionReasons = data.evictionReasons;
   }
 }
+
