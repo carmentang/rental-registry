@@ -1,12 +1,13 @@
 /* eslint-disable default-case */
 import { inject, observer } from 'mobx-react';
+import { RentalDataStore } from '../RentalDataStore';
 import React, { Component } from 'react';
-import *  as RentalDataStore from '../RentalDataStore';
-import PropertyDetails from './PropertyDetails';
+import OwnerDetails from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
 
 const FormContainer = inject('store')(observer(class FormContainer extends Component {
+
   state = {
     step: 1,
     firstName: '',
@@ -38,10 +39,6 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     ],
   }
 
-  addUnit = (unit) => {
-    unit.id = this.state.units.length + 1
-    this.setState([...this.state.units, unit])
-  }
 
   nextStep = () => {
     const { step } = this.state
@@ -118,7 +115,10 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
 
     switch (step) {
       case 1:
-        return <PropertyDetails store={RentalDataStore}
+        return <OwnerDetails
+          nextStep={this.nextStep}
+          handleChange={this.handleChange}
+          values={values}
         />
       case 2:
         return <UnitDetails
