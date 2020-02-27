@@ -85,7 +85,8 @@ export class FormContainer extends Component {
       monthRentChanged,
       dateRentChanged,
       evictions,
-      evictionReasons
+      evictionReasons,
+      numberOfEvictions
     } = this.state;
 
     const values = {
@@ -111,9 +112,11 @@ export class FormContainer extends Component {
       monthRentChanged,
       dateRentChanged,
       evictions,
-      evictionReasons
+      evictionReasons,
+      numberOfEvictions
     }
 
+    console.log(this.state.numberOfEvictions)
     switch (step) {
       case 1:
         return <Details
