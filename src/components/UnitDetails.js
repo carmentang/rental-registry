@@ -34,6 +34,7 @@ export class UnitDetails extends Component {
     return (
       <React.Fragment>
         <Header />
+        <h1 className="formHeader">Submit New Rental Registry Form</h1>
         {this.state.unitDetailFormRows.map((r) => (
           <UnitDetailForm
             nextStep={this.props.nextStep}

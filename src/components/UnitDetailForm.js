@@ -57,9 +57,7 @@ export class UnitDetailForm extends Component {
     const { values } = this.props;
     return (
       <React.Fragment>
-        <Header />
         <Form className="formBody">
-          <h1 className="formHeader">Submit New Rental Registry Form</h1>
           <hr />
           <h1>Occupancy</h1>
           <Form.Row>
@@ -174,21 +172,7 @@ export class UnitDetailForm extends Component {
               </Col>
             </Form.Row>
           </Form.Row>
-          <br></br>
-          <div className="formSubmitContainer">
-            <Form.Row>
-              <Button className="submit-new-form formButtonSubmit" onClick={this.addAnotherUnit}>
-                <span>+ Add Another Unit</span>
-              </Button>
-            </Form.Row>
-            <Form.Row>
-              <Button className="submit-new-form formButtonSubmit" onClick={this.submitForm}>
-                <span>Submit Form</span>
-              </Button>
-            </Form.Row>
-          </div>
         </Form>
-        <Footer />
       </React.Fragment>
     )
   }
