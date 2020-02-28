@@ -18,6 +18,7 @@ export class FormContainer extends Component {
     units: [
       {
         id: Number,
+        unitNumber: Number,
         bedrooms: Number,
         bathrooms: Number,
         occupancyStatus: '',
@@ -30,7 +31,8 @@ export class FormContainer extends Component {
         collectedJanUtil: '',
         monthRentChanged: '',
         dateRentChanged: '',
-        evictions: Number,
+        rentchangeAmount: Number,
+        numberOfEvictions: Number,
         evictionReasons: '',
       }
     ],
@@ -72,6 +74,7 @@ export class FormContainer extends Component {
       state,
       zipcode,
       units,
+      unitNumber,
       bedrooms,
       bathrooms,
       occupancyStatus,
@@ -84,9 +87,9 @@ export class FormContainer extends Component {
       collectedJanUtil,
       monthRentChanged,
       dateRentChanged,
-      evictions,
-      evictionReasons,
-      numberOfEvictions
+      rentChangeAmount,
+      numberOfEvictions,
+      evictionReasons
     } = this.state;
 
     const values = {
@@ -99,6 +102,7 @@ export class FormContainer extends Component {
       state,
       zipcode,
       units,
+      unitNumber,
       bedrooms,
       bathrooms,
       occupancyStatus,
@@ -111,12 +115,11 @@ export class FormContainer extends Component {
       collectedJanUtil,
       monthRentChanged,
       dateRentChanged,
-      evictions,
+      rentChangeAmount,
+      numberOfEvictions,
       evictionReasons,
-      numberOfEvictions
     }
 
-    console.log(this.state.numberOfEvictions)
     switch (step) {
       case 1:
         return <Details

@@ -5,14 +5,16 @@ import UnitDetailForm from './UnitDetailForm'
 import UnitDetailFormButton from './UnitDetailFormButton'
 
 export class UnitDetails extends Component {
-  addAnotherUnit = (e) => {
-    e.preventDefault()
-    // add a new form column
-  }
-
   submitForm = (e) => {
     e.preventDefault()
     // submit function
+  }
+
+  addAnotherUnit = (e) => {
+    e.preventDefault()
+    var unitDetailFormRows = this.state.unitDetailFormRows
+    unitDetailFormRows.push('new row')
+    this.setState({ unitDetailFormRows: unitDetailFormRows })
   }
 
   constructor(props) {
@@ -22,15 +24,9 @@ export class UnitDetails extends Component {
     };
   }
 
-  addRow = (e) => {
-    var unitDetailFormRows = this.state.unitDetailFormRows
-    unitDetailFormRows.push('new row')
-    this.setState({ unitDetailFormRows: unitDetailFormRows })
-    console.log("clicked addRow")
-  }
 
   render() {
-    // const { unitDetailFormRows } = this.state.unitDetailFormRows
+
     return (
       <React.Fragment>
         <Header />
@@ -47,7 +43,7 @@ export class UnitDetails extends Component {
           handleChange={this.props.handleChange}
           values={this.props}
           unitDetailFormRows={this.state.unitDetailFormRows}
-          addRow={this.addRow}
+          addAnotherUnit={this.addAnotherUnit}
         />
         <Footer />
       </React.Fragment>

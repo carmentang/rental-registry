@@ -17,6 +17,7 @@ export class OwnerDetailForm extends Component {
 
   render() {
     const { values } = this.props;
+
     return (
       <React.Fragment>
         <Form className="formBody">
@@ -25,19 +26,20 @@ export class OwnerDetailForm extends Component {
           <h1>Owner</h1>
           <Row>
             <Col>
-              <Form.Control type="text" placeholder='' onChange={this.props.handleChange('firstName')}
+              <Form.Control type="text" onChange={this.props.handleChange('firstName')}
                 defaultValue={values.firstName} />
               <Form.Label>First name</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" placeholder='' onChange={this.props.handleChange('lastName')}
+              <Form.Control type="text" onChange={this.props.handleChange('lastName')}
                 defaultValue={values.lastName} />
               <Form.Label>Last name</Form.Label>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Control as="select" placeholder='' onChange={this.props.handleChange('ownership')}>
+              <Form.Control as="select" onChange={this.props.handleChange('ownership')}
+                defaultValue={values.ownership}>
                 <option></option>
                 <option>Sole Ownership</option>
                 <option>Joint Tenancy</option>
@@ -48,7 +50,7 @@ export class OwnerDetailForm extends Component {
               <Form.Label>Ownership Type</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" placeholder='' onChange={this.props.handleChange('acquired')}
+              <Form.Control as="select" onChange={this.props.handleChange('acquired')}
                 defaultValue={values.acquired}>
                 <option></option>
                 {yearsList}
@@ -59,24 +61,25 @@ export class OwnerDetailForm extends Component {
           <h1>Rental Property Address</h1>
           <Row>
             <Col>
-              <Form.Control type="text" placeholder='' onChange={this.props.handleChange('street')}
+              <Form.Control type="text" onChange={this.props.handleChange('street')}
                 defaultValue={values.street} />
               <Form.Label>Street</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" placeholder='' onChange={this.props.handleChange('city')}
+              <Form.Control type="text" onChange={this.props.handleChange('city')}
                 defaultValue={values.city} />
               <Form.Label>City</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('state')}>
+              <Form.Control as="select" onChange={this.props.handleChange('state')}
+                defaultValue={values.state} >
                 <option></option>
                 {statesList}
               </Form.Control>
               <Form.Label>State</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" placeholder='' onChange={this.props.handleChange('zipcode')}
+              <Form.Control type="text" onChange={this.props.handleChange('zipcode')}
                 defaultValue={values.zipcode} />
               <Form.Label>Zipcode</Form.Label>
             </Col>

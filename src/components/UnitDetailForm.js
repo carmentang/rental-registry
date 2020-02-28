@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Col } from 'react-bootstrap';
-import Header from './Header';
-import Footer from './Footer';
+import { Form, Col } from 'react-bootstrap';
 import ReasonForEviction from './ReasonForEviction'
 
 const months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -35,15 +33,6 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
 )
 
 export class UnitDetailForm extends Component {
-  addAnotherUnit = (e) => {
-    e.preventDefault()
-    // add a new form column
-  }
-
-  submitForm = (e) => {
-    e.preventDefault()
-    // submit function
-  }
 
   render() {
     var numOfEvictsRows = [];
@@ -55,6 +44,7 @@ export class UnitDetailForm extends Component {
       />);
     }
     const { values } = this.props;
+
     return (
       <React.Fragment>
         <Form className="formBody">
@@ -63,11 +53,12 @@ export class UnitDetailForm extends Component {
           <Form.Row>
             <Col>
               <Form.Control type="text" onChange={this.props.handleChange('unitNumber')}
-                defaultValue={values.firstName} />
+                defaultValue={values.unitNumber} />
               <Form.Label>Unit #</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('bedroomNumber')}>
+              <Form.Control as="select" onChange={this.props.handleChange('bedrooms')}
+                defaultValue={values.bedrooms}>
                 <option></option>
                 <option>0</option>
                 <option>1</option>
@@ -80,7 +71,8 @@ export class UnitDetailForm extends Component {
               <Form.Label># Bedrooms</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('bathroomNumber')}>
+              <Form.Control as="select" onChange={this.props.handleChange('bathrooms')}
+                defaultValue={values.bathrooms}>
                 <option></option>
                 <option>1</option>
                 <option>2</option>
@@ -92,7 +84,8 @@ export class UnitDetailForm extends Component {
           </Form.Row>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('occupancyStatus')}>
+              <Form.Control as="select" onChange={this.props.handleChange('occupancyStatus')}
+                defaultValue={values.occupancyStatus}>
                 <option></option>
                 <option>Occupied</option>
                 <option>Vacant</option>
@@ -101,13 +94,15 @@ export class UnitDetailForm extends Component {
               <Form.Label>Occupancy Status</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('startMonthOccupancy')}>
+              <Form.Control as="select" onChange={this.props.handleChange('monthOccupied')}
+                defaultValue={values.monthOccupied}>
                 {monthList}
               </Form.Control>
               <Form.Label>Start month of occupancy</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('startYearOccupancy')}>
+              <Form.Control as="select" onChange={this.props.handleChange('yearOccupied')}
+                defaultValue={values.yearOccupied}>
                 {yearsList}
               </Form.Control>
               <Form.Label>Start year of occupancy</Form.Label>
@@ -115,24 +110,28 @@ export class UnitDetailForm extends Component {
           </Form.Row>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthsRented')}>
+              <Form.Control as="select" onChange={this.props.handleChange('monthsRented')}
+                defaultValue={values.monthsRented}>
                 {monthsRentedList}
               </Form.Control>
               <Form.Label># months rented out last year</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('vacancyDays')}>
+              <Form.Control as="select" onChange={this.props.handleChange('vacancyDays')}
+                defaultValue={values.vacancyDays}>
                 {vacancyDaysList}
               </Form.Control>
               <Form.Label># vacancy days last year</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('januaryRent')}>
+              <Form.Control type="text" onChange={this.props.handleChange('previousJanRent')}
+                defaultValue={values.previousJanRent}>
               </Form.Control>
               <Form.Label>January Rent $</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('januaryUtility')}>
+              <Form.Control type="text" onChange={this.props.handleChange('collectedJanUtil')}
+                defaultValue={values.collectedJanUtil}>
               </Form.Control>
               <Form.Label>Utility Amount Collected in January</Form.Label>
             </Col>
@@ -140,19 +139,22 @@ export class UnitDetailForm extends Component {
           <h1>Rent Increase & Evictions</h1>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthOfRentChange')}>
+              <Form.Control as="select" onChange={this.props.handleChange('monthRentChanged')}
+                defaultValue={values.monthRentChanged}>
                 {monthList}
               </Form.Control>
               <Form.Label>Month of last effective rent increase/decrease</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthOfRentChange')}>
+              <Form.Control as="select" onChange={this.props.handleChange('dateRentChanged')}
+                defaultValue={values.dateRentChanged}>
                 {daysList}
               </Form.Control>
               <Form.Label>Date of last effective rent increase/decrease</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('rentChangeAmount')}>
+              <Form.Control type="text" onChange={this.props.handleChange('rentChangeAmount')}
+                defaultValue={values.rentChangeAmount}>
               </Form.Control>
               <Form.Label>Rent increase/decrease $</Form.Label>
             </Col>
