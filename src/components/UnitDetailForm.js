@@ -35,7 +35,7 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
 export class UnitDetailForm extends Component {
 
   render() {
-    var numOfEvictsRows = [];
+    var numOfEvictsRows = new Array(this.props.numberOfEvictions);
     for (var i = 0; i < this.props.numberOfEvictions; i++) {
       numOfEvictsRows.push(<ReasonForEviction
         handleChange={this.props.handleChange}
@@ -167,7 +167,7 @@ export class UnitDetailForm extends Component {
                 <Form.Label># Evicted tenants last year in this unit</Form.Label>
               </Col>
               <Col>
-                {this.props.numberOfEvictions ? { numOfEvictsRows }
+                {this.props.numberOfEvictions > 0 ? { numOfEvictsRows }
                   :
                   ""
                 }
