@@ -36,12 +36,12 @@ export default class RentalDataStore {
     storeOwnerAndPropertyData(data) {
         this.ownerFirstName = data.firstName;
         this.ownerLastName = data.lastName;
-        this.ownershipType = data.ownershipType;
-        this.yearOfAcquisition = data.yearOfAcquisition;
-        this.streetAddress = data.streetAddress;
+        this.ownershipType = data.ownership;
+        this.yearOfAcquisition = data.acquired;
+        this.streetAddress = data.street;
         this.city = data.city;
         this.state = data.state;
-        this.zipCode = data.zipCode;
+        this.zipCode = data.zipcode;
     }
 
     setHasMulitipleUnits(event) {
