@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import {inject, observer} from 'mobx-react';
 import React, { Component } from 'react';
-import PropertyDetails from './PropertyDetails';
+import Details from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
 
@@ -20,26 +20,26 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     zipcode: '',
     units: [
       {
-      id: Number,
-      bedrooms: Number,
-      bathrooms: Number,
-      occupancyStatus: '',
-      monthOccupied: '',
-      yearOccupied: '',
-      monthsRented: Number,
-      vacancyDays: Number,
-      previousJanRent: '',
-      currentJanRent: '',
-      collectedJanUtil: '',
-      monthRentChanged: '',
-      dateRentChanged: '',
-      evictions: Number,
-      evictionReasons: '',
+        id: Number,
+        bedrooms: Number,
+        bathrooms: Number,
+        occupancyStatus: '',
+        monthOccupied: '',
+        yearOccupied: '',
+        monthsRented: Number,
+        vacancyDays: Number,
+        previousJanRent: '',
+        currentJanRent: '',
+        collectedJanUtil: '',
+        monthRentChanged: '',
+        dateRentChanged: '',
+        evictions: Number,
+        evictionReasons: '',
       }
     ],
   }
-  
-  adduser = (unit) => {
+
+  addUser = (unit) => {
     unit.id = this.state.units.length + 1
     this.setState([...this.state.units, unit])
   }
@@ -119,7 +119,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
 
     switch (step) {
       case 1:
-        return <PropertyDetails
+        return <Details
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}
