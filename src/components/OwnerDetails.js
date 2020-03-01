@@ -1,3 +1,4 @@
+import {inject, observer} from 'mobx-react';
 import React, { Component } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import Header from './Header';
@@ -11,9 +12,10 @@ const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI"
 const statesList = states.map((state) =>
   <option>{state}</option>
 )
-export class PropertyDetails extends Component {
+const PropertyDetails = inject('store')(observer(class PropertyDetails extends Component {
   saveAndContinue = (e) => {
     e.preventDefault()
+    this.props.store.storeOwnerAndPropertyData(this.props.values);
     this.props.nextStep()
   }
   handleChange(event) {
@@ -104,8 +106,7 @@ export class PropertyDetails extends Component {
       </React.Fragment>
     )
   }
-}
+}));
 
-export default PropertyDetails
-
+export default PropertyDetails;
 

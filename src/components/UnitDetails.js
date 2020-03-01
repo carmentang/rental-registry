@@ -1,3 +1,4 @@
+import {inject, observer} from 'mobx-react';
 import React, { Component } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import Header from './Header';
@@ -30,7 +31,8 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
   <option>{evicted}</option>
 )
 
-export class UnitDetails extends Component {
+const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
+
   addAnotherUnit = (e) => {
     e.preventDefault()
     // add a new form column
@@ -178,6 +180,6 @@ export class UnitDetails extends Component {
       </React.Fragment>
     )
   }
-}
+}));
 
 export default UnitDetails
