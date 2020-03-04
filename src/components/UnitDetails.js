@@ -49,6 +49,6 @@ export class UnitDetails extends Component {
       </React.Fragment>
     )
   }
-}
+};
 
 export default UnitDetails

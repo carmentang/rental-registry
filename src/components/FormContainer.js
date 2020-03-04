@@ -1,10 +1,13 @@
 /* eslint-disable default-case */
+import {inject, observer} from 'mobx-react';
 import React, { Component } from 'react';
 import Details from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
 
-export class FormContainer extends Component {
+
+const FormContainer = inject('store')(observer(class FormContainer extends Component {
+
   state = {
     step: 1,
     firstName: '',
@@ -137,6 +140,6 @@ export class FormContainer extends Component {
         return <Thanks />
     }
   }
-}
+}));
 
 export default FormContainer;

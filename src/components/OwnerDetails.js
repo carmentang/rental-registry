@@ -19,8 +19,7 @@ export class PropertyDetails extends Component {
       </React.Fragment>
     )
   }
-}
+};
 
-export default PropertyDetails
-
+export default PropertyDetails;
 
