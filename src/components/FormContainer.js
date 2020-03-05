@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import {inject, observer} from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import Details from './OwnerDetails';
 import UnitDetails from './UnitDetails'
@@ -25,6 +25,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
         bedrooms: Number,
         bathrooms: Number,
         occupancyStatus: '',
+        occupancyStatusDetails: '',
         monthOccupied: '',
         yearOccupied: '',
         monthsRented: Number,
@@ -81,6 +82,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       bedrooms,
       bathrooms,
       occupancyStatus,
+      occupancyStatusDetails,
       monthOccupied,
       yearOccupied,
       monthsRented,
@@ -109,6 +111,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       bedrooms,
       bathrooms,
       occupancyStatus,
+      occupancyStatusDetails,
       monthOccupied,
       yearOccupied,
       monthsRented,

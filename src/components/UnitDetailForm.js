@@ -35,8 +35,9 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
 export class UnitDetailForm extends Component {
 
   render() {
+    const { values } = this.props;
     var evictsRows = []
-    if (this.props.values.values.numberOfEvictions) {
+    if (values.values.numberOfEvictions) {
       var num = Number(this.props.values.values.numberOfEvictions)
       var numOfEvictsRows = new Array(num);
 
@@ -48,8 +49,16 @@ export class UnitDetailForm extends Component {
       }
 
     }
-    const { values } = this.props;
 
+    // let OccupancyStatusDetails = "";
+    // if (values.values.occupancyStatus == "Other") {
+    //   OccupancyStatusDetails =
+    //     <Col>
+    //       <Form.Control type="text" onChange={this.props.handleChange('occupancyStatusDetails')}
+    //         defaultValue={values.occupancyStatusOther} />
+    //       <Form.Label>If 'other' is selected, please describe:</Form.Label>
+    //     </Col>
+    // }
     return (
       <React.Fragment>
         <Form className="formBody">
@@ -92,12 +101,20 @@ export class UnitDetailForm extends Component {
               <Form.Control as="select" onChange={this.props.handleChange('occupancyStatus')}
                 defaultValue={values.occupancyStatus}>
                 <option></option>
+                <option>Manager/Owner unit</option>
                 <option>Occupied</option>
                 <option>Vacant</option>
                 <option>Other</option>
               </Form.Control>
               <Form.Label>Occupancy Status</Form.Label>
             </Col>
+            {values.values.occupancyStatus === "Other" &&
+              <Col>
+                <Form.Control type="text" onChange={this.props.handleChange('occupancyStatusDetails')}
+                  defaultValue={values.occupancyStatusOther} />
+                <Form.Label>Please describe occupancy status:</Form.Label>
+              </Col>
+            }
             <Col>
               <Form.Control as="select" onChange={this.props.handleChange('monthOccupied')}
                 defaultValue={values.monthOccupied}>
