@@ -136,13 +136,13 @@ export class UnitDetailForm extends Component {
                 defaultValue={values.monthsRented}>
                 {monthsRentedList}
               </Form.Control>
-              <Form.Label># months rented out last year</Form.Label>
+              <Form.Label># Months occupied last year</Form.Label>
             </Col>
             <Col>
               <Form.Control type="text" onChange={this.props.handleChange('previousJanRent')}
                 defaultValue={values.previousJanRent}>
               </Form.Control>
-              <Form.Label>January Rent $</Form.Label>
+              <Form.Label>January rent amount for current year</Form.Label>
             </Col>
             <Col>
               <Form.Control type="text" onChange={this.props.handleChange('collectedJanUtil')}
