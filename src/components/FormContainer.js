@@ -1,9 +1,10 @@
 /* eslint-disable default-case */
-import {inject, observer} from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import Details from './OwnerDetails';
+import OwnerDetails from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
+
 
 
 const FormContainer = inject('store')(observer(class FormContainer extends Component {
@@ -21,27 +22,24 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     units: [
       {
         id: Number,
+        unitNumber: Number,
         bedrooms: Number,
         bathrooms: Number,
         occupancyStatus: '',
+        occupancyStatusDetails: '',
         monthOccupied: '',
         yearOccupied: '',
         monthsRented: Number,
-        vacancyDays: Number,
         previousJanRent: '',
         currentJanRent: '',
         collectedJanUtil: '',
-        monthRentChanged: '',
         dateRentChanged: '',
-        evictions: Number,
+        rentchangeAmount: Number,
+        numberOfEvictions: Number,
+        currentRentAmount: Number,
         evictionReasons: '',
       }
     ],
-  }
-
-  addUser = (unit) => {
-    unit.id = this.state.units.length + 1
-    this.setState([...this.state.units, unit])
   }
 
   nextStep = () => {
@@ -51,12 +49,12 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     })
   }
 
-  prevStep = () => {
-    const { step } = this.state
-    this.setState({
-      step: step - 1
-    })
-  }
+  // prevStep = () => {
+  //   const { step } = this.state
+  //   this.setState({
+  //     step: step - 1
+  //   })
+  // }
 
   handleChange = input => event => {
     this.setState({ [input]: event.target.value })
@@ -75,19 +73,21 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       state,
       zipcode,
       units,
+      unitNumber,
       bedrooms,
       bathrooms,
       occupancyStatus,
+      occupancyStatusDetails,
       monthOccupied,
       yearOccupied,
       monthsRented,
-      vacancyDays,
       previousJanRent,
       currentJanRent,
       collectedJanUtil,
       monthRentChanged,
       dateRentChanged,
-      evictions,
+      rentChangeAmount,
+      numberOfEvictions,
       evictionReasons
     } = this.state;
 
@@ -101,25 +101,27 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       state,
       zipcode,
       units,
+      unitNumber,
       bedrooms,
       bathrooms,
       occupancyStatus,
+      occupancyStatusDetails,
       monthOccupied,
       yearOccupied,
       monthsRented,
-      vacancyDays,
       previousJanRent,
       currentJanRent,
       collectedJanUtil,
       monthRentChanged,
       dateRentChanged,
-      evictions,
-      evictionReasons
+      rentChangeAmount,
+      numberOfEvictions,
+      evictionReasons,
     }
 
     switch (step) {
       case 1:
-        return <Details
+        return <OwnerDetails
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}
