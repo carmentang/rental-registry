@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Form, Col } from 'react-bootstrap';
-import ReasonForEviction from './ReasonForEviction'
+
+import ReasonForEviction from './ReasonForEviction';
 
 const months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 const monthList = months.map((month) =>

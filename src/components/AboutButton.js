@@ -1,26 +1,17 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import { Route } from 'react-router-dom';
 
 const AboutButton = () => (
   <Route
     render={({ history }) => (
-      <Button
-        className="submit-new-form"
+      <Button style={{height: 52, width: 215}}
+        className="submit-new-form formButtonSubmit"
         onClick={() => {
           history.push('/about');
         }}
-      > 
-        <span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          About
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
-        <span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
+      >About
       </Button>
     )} // Note: just playing with non-breaking space above...
   />

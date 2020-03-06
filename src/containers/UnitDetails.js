@@ -1,9 +1,10 @@
 import { inject, observer } from 'mobx-react';
-import React, { Component } from 'react'
-import Header from './Header';
-import Footer from './Footer';
-import UnitDetailForm from './UnitDetailForm'
-import UnitDetailFormButton from './UnitDetailFormButton'
+import React, { Component } from 'react';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import UnitDetailForm from '../components/UnitDetailForm';
+import UnitDetailFormButton from '../components/UnitDetailFormButton';
 
 const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   submitForm = (e) => {
@@ -53,4 +54,4 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
   }
 }));
 
-export default UnitDetails
+export default UnitDetails;

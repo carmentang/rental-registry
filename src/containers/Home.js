@@ -1,9 +1,10 @@
 import {inject, observer} from 'mobx-react';
 import React, { Component } from 'react';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import NewFormButton from './NewFormButton';
-import AboutButton from './AboutButton';
+import NewFormButton from '../components/NewFormButton';
+import AboutButton from '../components/AboutButton';
 
 
 const Home = inject('store')(observer(class Home extends Component {

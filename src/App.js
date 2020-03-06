@@ -2,10 +2,10 @@ import { Provider } from 'mobx-react';
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import About from './components/About';
-import FormContainer from './components/FormContainer';
-import Home from './components/Home';
-import Thanks from './components/Thanks';
+import About from './containers/About';
+import FormContainer from './containers/FormContainer';
+import Home from './containers/Home';
+import Thanks from './containers/Thanks';
 
 import RentalDataStore from './rentalDataStore';
 

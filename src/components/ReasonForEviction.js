@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 
 export class ReasonForEviction extends Component {

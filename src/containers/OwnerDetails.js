@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Header from './Header';
-import Footer from './Footer';
-import OwnerDetailForm from './OwnerDetailForm'
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import OwnerDetailForm from '../components/OwnerDetailForm';
 
 export class OwnerDetails extends Component {
 

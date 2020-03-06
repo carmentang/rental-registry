@@ -1,10 +1,10 @@
 /* eslint-disable default-case */
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import OwnerDetails from './OwnerDetails';
-import UnitDetails from './UnitDetails'
-import Thanks from './Thanks';
 
+import OwnerDetails from '../containers/OwnerDetails';
+import UnitDetails from '../containers/UnitDetails';
+import Thanks from '../containers/Thanks';
 
 
 const FormContainer = inject('store')(observer(class FormContainer extends Component {
