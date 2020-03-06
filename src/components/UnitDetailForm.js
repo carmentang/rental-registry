@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+
 import { Form, Col } from 'react-bootstrap';
 
 import ReasonForEviction from './ReasonForEviction';
-
 import * as Types from '../types';
 
 export class UnitDetailForm extends Component {
   render() {
+
     const { values } = this.props;
+
     var evictsRows = [];
+
     if (values.values.numberOfEvictions) {
       var num = Number(this.props.values.values.numberOfEvictions);
       var numOfEvictsRows = new Array(num);

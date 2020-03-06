@@ -10,7 +10,7 @@ import AboutButton from '../components/AboutButton';
 const Home = inject('store')(observer(class Home extends Component {
   render() {
     return (
-      <div class="wrapper">
+      <div className="wrapper">
         <Header />
         <div className="homepage">
           <h1 className="homepage-title">California Rental Registry</h1>

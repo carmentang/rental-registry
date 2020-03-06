@@ -90,8 +90,8 @@ const OwnerDetailForm = inject('store')(
                 <Col>
                   <Form.Control
                     as="select"
-                    onChange={this.props.handleChange('state')}
-                    defaultValue={values.state}
+                    onChange={this.props.handleChange('amState')}
+                    defaultValue={values.amState}
                   >
                     <option></option>
                     {Types.americanStatesList}

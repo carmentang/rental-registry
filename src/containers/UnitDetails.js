@@ -7,24 +7,24 @@ import UnitDetailForm from '../components/UnitDetailForm';
 import UnitDetailFormButton from '../components/UnitDetailFormButton';
 
 const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
-  submitForm = (e) => {
-    e.preventDefault()
-    // submit function
-  }
+  // submitForm = (e) => {
+  //   e.preventDefault()
+  //   // submit function
+  // }
 
-  addAnotherUnit = (e) => {
-    e.preventDefault()
-    var unitDetailFormRows = this.state.unitDetailFormRows
-    unitDetailFormRows.push('new row')
-    this.setState({ unitDetailFormRows: unitDetailFormRows })
-  }
+  // addAnotherUnit = (e) => {
+  //   e.preventDefault()
+  //   var unitDetailFormRows = this.state.unitDetailFormRows
+  //   unitDetailFormRows.push('new row')
+  //   this.setState({ unitDetailFormRows: unitDetailFormRows })
+  // }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      unitDetailFormRows: ["primary row"]
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     unitDetailFormRows: ["primary row"]
+  //   };
+  // }
 
 
   render() {
@@ -34,19 +34,18 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
         <Header />
         <h1 className="formHeader">Submit New Rental Registry Form</h1>
         <hr />    
-        {this.state.unitDetailFormRows.map((r) => (
-          <UnitDetailForm
-            nextStep={this.props.nextStep}
-            handleChange={this.props.handleChange}
-            values={this.props}
-          />
-        ))}
-        <UnitDetailFormButton
-          nextStep={this.props.nextStep}
+        <UnitDetailForm
           handleChange={this.props.handleChange}
+          handleSubmit={this.props.handleSubmit}
+          handleUnitChange={this.props.handleUnitChange}
+          nextStep={this.props.nextStep}
           values={this.props}
-          unitDetailFormRows={this.state.unitDetailFormRows}
-          addAnotherUnit={this.addAnotherUnit}
+        />
+        <UnitDetailFormButton
+          addUnit={this.props.addUnit}
+          handleChange={this.props.handleChange}
+          nextStep={this.props.nextStep}
+          values={this.props}
         />
         <Footer />
       </React.Fragment>
