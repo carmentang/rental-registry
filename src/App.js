@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import About from './components/About';
-import Home from './components/Home';
 import FormContainer from './components/FormContainer';
+import Home from './components/Home';
+import Thanks from './components/Thanks';
 
 import RentalDataStore from './rentalDataStore';
-
 
 class App extends Component {
   constructor() {
@@ -23,6 +23,8 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/form' component={FormContainer} />
+            <Route exact path='/thanks' component={Thanks} />
+
           </Switch>
         </Provider>
       </div>
