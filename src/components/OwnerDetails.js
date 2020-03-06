@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+
 import Header from './Header';
 import Footer from './Footer';
 import OwnerDetailForm from './OwnerDetailForm'
 
-export class PropertyDetails extends Component {
+export class OwnerDetails extends Component {
 
   render() {
     return (
@@ -21,5 +22,5 @@ export class PropertyDetails extends Component {
   }
 };
 
-export default PropertyDetails;
+export default OwnerDetails;
 

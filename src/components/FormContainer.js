@@ -1,9 +1,10 @@
 /* eslint-disable default-case */
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import Details from './OwnerDetails';
+import OwnerDetails from './OwnerDetails';
 import UnitDetails from './UnitDetails'
 import Thanks from './Thanks';
+
 
 
 const FormContainer = inject('store')(observer(class FormContainer extends Component {
@@ -32,18 +33,13 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
         previousJanRent: '',
         currentJanRent: '',
         collectedJanUtil: '',
-        monthRentChanged: '',
         dateRentChanged: '',
         rentchangeAmount: Number,
         numberOfEvictions: Number,
+        currentRentAmount: Number,
         evictionReasons: '',
       }
     ],
-  }
-
-  addUser = (unit) => {
-    unit.id = this.state.units.length + 1
-    this.setState([...this.state.units, unit])
   }
 
   nextStep = () => {
@@ -53,12 +49,12 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     })
   }
 
-  prevStep = () => {
-    const { step } = this.state
-    this.setState({
-      step: step - 1
-    })
-  }
+  // prevStep = () => {
+  //   const { step } = this.state
+  //   this.setState({
+  //     step: step - 1
+  //   })
+  // }
 
   handleChange = input => event => {
     this.setState({ [input]: event.target.value })
@@ -125,7 +121,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
 
     switch (step) {
       case 1:
-        return <Details
+        return <OwnerDetails
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}

@@ -62,7 +62,6 @@ export class UnitDetailForm extends Component {
     return (
       <React.Fragment>
         <Form className="formBody">
-          <hr />
           <h1>Occupancy</h1>
           <Form.Row>
             <Col>
@@ -151,40 +150,38 @@ export class UnitDetailForm extends Component {
               <Form.Label>Utility Amount Collected in January</Form.Label>
             </Col>
           </Form.Row>
-          <h1>Rent Increase & Evictions</h1>
+          <h1>Rent Increase</h1>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthRentChanged')}
-                defaultValue={values.monthRentChanged}>
-                {monthList}
-              </Form.Control>
-              <Form.Label>Month of last effective rent increase/decrease</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('dateRentChanged')}
+              <Form.Control type="date" onChange={this.props.handleChange('dateRentChanged')}
                 defaultValue={values.dateRentChanged}>
-                {daysList}
               </Form.Control>
               <Form.Label>Date of last effective rent increase/decrease</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('rentChangeAmount')}
+              <Form.Control as="select" onChange={this.props.handleChange('rentChangeAmount')}
                 defaultValue={values.rentChangeAmount}>
               </Form.Control>
-              <Form.Label>Rent increase/decrease $</Form.Label>
+              <Form.Label>Rent amount for month prior to rent increase/decrease</Form.Label>
             </Col>
-            <Form.Row />
-            <Form.Row>
-              <Col>
-                <Form.Control as="select" md="3" value={this.props.numberOfEvictions} onChange={this.props.handleChange('numberOfEvictions')}>
-                  {evictedTenantsList}
-                </Form.Control>
-                <Form.Label># Evicted tenants last year in this unit</Form.Label>
-              </Col>
-              <Col>
-                {evictsRows}
-              </Col>
-            </Form.Row>
+            <Col>
+              <Form.Control type="text" onChange={this.props.handleChange('currentRentAmount')}
+                defaultValue={values.currentRentAmount}>
+              </Form.Control>
+              <Form.Label>Rent Amount</Form.Label>
+            </Col>
+          </Form.Row>
+          <h1>Evictions</h1>
+          <Form.Row>
+            <Col>
+              <Form.Control as="select" md="4" value={this.props.numberOfEvictions} onChange={this.props.handleChange('numberOfEvictions')}>
+                {evictedTenantsList}
+              </Form.Control>
+              <Form.Label># Evicted tenants last year in this unit</Form.Label>
+            </Col>
+            <Col>
+              {evictsRows}
+            </Col>
           </Form.Row>
         </Form>
       </React.Fragment>

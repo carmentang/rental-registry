@@ -1,10 +1,11 @@
+import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import UnitDetailForm from './UnitDetailForm'
 import UnitDetailFormButton from './UnitDetailFormButton'
 
-export class UnitDetails extends Component {
+const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   submitForm = (e) => {
     e.preventDefault()
     // submit function
@@ -31,6 +32,7 @@ export class UnitDetails extends Component {
       <React.Fragment>
         <Header />
         <h1 className="formHeader">Submit New Rental Registry Form</h1>
+        <hr />    
         {this.state.unitDetailFormRows.map((r) => (
           <UnitDetailForm
             nextStep={this.props.nextStep}
@@ -49,6 +51,6 @@ export class UnitDetails extends Component {
       </React.Fragment>
     )
   }
-};
+}));
 
 export default UnitDetails
