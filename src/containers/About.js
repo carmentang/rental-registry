@@ -5,10 +5,7 @@ import Footer from '../components/Footer';
 import TechEquityLogo from '../images/tech-equity.png';
 
 
-
-
 const About = () => {
-
 
   return <div class="wrapper">
     <Header />
@@ -23,10 +20,10 @@ const About = () => {
         <span> * Blurb about Tech Equity and Volunteers*</span>
       </p>
       <div>
-      <img style={{ height: 100 }} alt="Tech Equity Collaborative Logo" src={TechEquityLogo}></img>
+        <img style={{ height: 100 }} alt="Tech Equity Collaborative Logo" src={TechEquityLogo}></img>
       </div>
     </div>
-    
+
     <Footer />
   </div>
 }
