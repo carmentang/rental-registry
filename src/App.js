@@ -1,11 +1,13 @@
-import {Provider} from 'mobx-react';
+import { Provider } from 'mobx-react';
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
 import About from './components/About';
 import Home from './components/Home';
 import FormContainer from './components/FormContainer';
+
 import RentalDataStore from './rentalDataStore';
 
-import {  Switch, Route } from 'react-router-dom'; // sets up routing
 
 class App extends Component {
   constructor() {
