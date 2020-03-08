@@ -3,15 +3,15 @@ import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 
 import Owner from '../components/Owner';
-import Unit from '../components/Unit';
 import Thanks from '../components/Thanks';
-
+import Unit from '../components/Unit';
 
 const Form = inject('store')(
   observer(
     class Form extends Component {
       state = {
         step: 1,
+        isHidden: false,
         firstName: '',
         lastName: '',
         ownership: '',
@@ -55,67 +55,86 @@ const Form = inject('store')(
         });
       };
 
-      // prevStep = () => {
-      //   const { step } = this.state
-      //   this.setState({
-      //     step: step - 1
-      //   })
-      // }
+      // addUnit = e => {
+      //   this.setState(prevState => ({
+      //     units: [
+      //       ...prevState.units,
+      //       {
+      //         id: '',
+      //         unitNumber: '',
+      //         bedrooms: '',
+      //         bathrooms: '',
+      //         occupancyStatus: '',
+      //         occupancyStatusDetails: '',
+      //         monthOccupied: '',
+      //         yearOccupied: '',
+      //         monthsRented: '',
+      //         currentJanRent: '',
+      //         collectedJanUtil: '',
+      //         dateRentChanged: '',
+      //         rentChangeAmount: '',
+      //         currentRentAmount: ''
+      //       }
+      //     ]
+      //   }));
+      // };
 
-      addUnit = (e) => {
-        this.setState((prevState) => ({
-          units: [...prevState.unit, {
-            id: 0,
-            unitNumber: 0,
-            bedrooms: 0,
-            bathrooms: 0,
-            occupancyStatus: '',
-            occupancyStatusDetails: '',
-            monthOccupied: '',
-            yearOccupied: '',
-            monthsRented: 0,
-            currentJanRent: '',
-            collectedJanUtil: '',
-            dateRentChanged: '',
-            rentchangeAmount: 0,
-            currentRentAmount: 0,
-            evictions: [
+      addUnit = e => {
+        if (this.state.units.length < 100) {
+          this.setState({
+            units: this.state.units.concat([
               {
-                numberOfEvictions: 0,
-                evictionReasons: ''
-              }
-            ]
-          }],
-        }));
+                id: '',
+                unitNumber: '',
+                bedrooms: '',
+                bathrooms: '',
+                occupancyStatus: '',
+                occupancyStatusDetails: '',
+                monthOccupied: '',
+                yearOccupied: '',
+                monthsRented: '',
+                currentJanRent: '',
+                collectedJanUtil: '',
+                dateRentChanged: '',
+                rentChangeAmount: '',
+                currentRentAmount: ''
+              }])
+          })
+        } // trying conditional 
       }
 
-      addEviction = eviction => {
-        this.setState({
-          evictions: [
-            ...this.state.evictions,
-            eviction
-          ]
-        })
-      }
-
-      handleChange = input => e => {
-        this.setState({ [input]: e.target.value });
+      handleUnitChange = e => {
+        if (
+          [
+            'id',
+            'unitNumber',
+            'bedrooms',
+            'bathrooms',
+            'occupancyStatus',
+            'occupancyStatusDetails',
+            'monthOccupied',
+            'yearOccupied',
+            'monthsRented',
+            'currentJanRent',
+            'collectedJanUtil',
+            'rentChangeAmount',
+            'currentRentAmount',
+            'evictions'
+          ].includes(e.target.className)
+        ) {
+          let units = [...this.state.units];
+          units[e.target.dataset.id][e.target.className] = e.target.value;
+          this.setState({ units }, () => console.log(this.state.units));
+        } else {
+          this.setState({ [e.target.name]: e.target.value.toUpperCase() });
+        }
       };
 
-      handleUnitChange = (e) => {
-        if (['unitNumber', 'bedrooms', 'bathrooms', 'occupancyStatus', 'occupancyStatusDetails', 'monthOccupied', 'yearOccupied', 'monthsRented', 'currentJanRent', 'collectedJanUtil', 'rentChangeAmount', 'currentRentAmount', 'evictions'].includes(e.target.className)) {
-          let units = [...this.state.units]
-          units[e.target.dataset.id][e.target.className] = e.target.value
-          this.setState({ units }, () => console.log(this.state.units))
-        } else {
-          this.setState({ [e.target.name]: e.target.value.toUpperCase() })
-        }
-      }
-
-      handleSubmit = (e) => { e.preventDefault() }
+      handleSubmit = e => {
+        e.preventDefault();
+      };
 
       render() {
-
         const { step } = this.state;
         const {
           firstName,
@@ -187,17 +206,16 @@ const Form = inject('store')(
           case 2:
             return (
               <Unit
+                addUnit={this.addUnit}
                 handleChange={this.handleChange}
-                handleSubmit={this.props.handleSubmit}
+                handleSubmit={this.handleSubmit}
                 handleUnitChange={this.handleUnitChange}
                 nextStep={this.nextStep}
                 values={values}
               />
             );
           case 3:
-            return (
-              <Thanks />
-            )
+            return <Thanks />;
         }
       }
     }
