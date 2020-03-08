@@ -29,13 +29,9 @@ class Footer extends Component {
   }
   render() {
     return (
-      <div style={{...sticky, ...phantom}}>
-      <footer>
-        <ul className="site-link">
-          <li>
-            &copy; {this.state.year} TechEquity Collaborative
-          </li>
-        </ul>
+      <div style={{ ...sticky, ...phantom }}>
+        <footer>
+          &copy; {this.state.year} TechEquity Collaborative
       </footer>
       </div>
     );

@@ -23,7 +23,6 @@ const About = () => {
         <img style={{ height: 100 }} alt="Tech Equity Collaborative Logo" src={TechEquityLogo}></img>
       </div>
     </div>
-
     <Footer />
   </div>
 }

@@ -8,9 +8,9 @@ import * as Types from '../types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const OwnerDetailForm = inject('store')(
+const Owner = inject('store')(
   observer(
-    class OwnerDetailForm extends Component {
+    class Owner extends Component {
       saveAndContinue = e => {
         e.preventDefault();
         this.props.store.storeOwnerAndPropertyData(this.props.values);
@@ -137,4 +137,4 @@ const OwnerDetailForm = inject('store')(
   )
 );
 
-export default OwnerDetailForm;
+export default Owner;
