@@ -5,6 +5,9 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 
 import * as Types from '../types';
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 const OwnerDetailForm = inject('store')(
   observer(
     class OwnerDetailForm extends Component {
@@ -19,6 +22,7 @@ const OwnerDetailForm = inject('store')(
 
         return (
           <React.Fragment>
+            <Header />
             <Form className="formBody">
               <h1 className="formHeader">Submit New Rental Registry Form</h1>
               <hr />
@@ -125,6 +129,7 @@ const OwnerDetailForm = inject('store')(
               </div>
             </Form>
             <br></br>
+            <Footer />
           </React.Fragment>
         );
       }

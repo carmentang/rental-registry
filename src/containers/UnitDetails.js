@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import UnitDetailForm from '../components/UnitDetailForm';
-import UnitDetailFormButton from '../components/UnitDetailFormButton';
+import UnitDetailForm from '../components/Unit';
+import UnitDetailFormButton from '../components/Buttons/UnitButtons';
 
 const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   // submitForm = (e) => {

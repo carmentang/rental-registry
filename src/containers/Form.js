@@ -2,9 +2,11 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 
-import OwnerDetails from '../containers/OwnerDetails';
-import UnitDetails from '../containers/UnitDetails';
-import Thanks from '../containers/Thanks';
+
+import Owner from '../components/Owner';
+import Unit from '../components/Unit';
+import Thanks from '../components/Thanks';
+
 
 const FormContainer = inject('store')(
   observer(
@@ -114,6 +116,7 @@ const FormContainer = inject('store')(
       handleSubmit = (e) => { e.preventDefault() }
 
       render() {
+      
         const { step } = this.state;
         const {
           firstName,
@@ -172,11 +175,11 @@ const FormContainer = inject('store')(
           numberOfEvictions,
           evictionReasons
         };
-
+        
         switch (step) {
           case 1:
             return (
-              <OwnerDetails
+              <Owner
                 nextStep={this.nextStep}
                 handleChange={this.handleChange}
                 values={values}
@@ -184,16 +187,18 @@ const FormContainer = inject('store')(
             );
           case 2:
             return (
-              <UnitDetails
+              <Unit
                 handleChange={this.handleChange}
                 handleSubmit={this.props.handleSubmit}
                 handleUnitChange={this.handleUnitChange}
                 nextStep={this.nextStep}
                 values={values}
-              />
+              /> 
             );
           case 3:
-            return <Thanks />;
+            return (
+              <Thanks />
+            )
         }
       }
     }
