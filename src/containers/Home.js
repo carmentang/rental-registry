@@ -15,20 +15,20 @@ const Home = () => {
         <hr />
         <p className="homepage-body">
           <span>Welcome! If you are a landlord that owns five or more</span>
-          <span>
-            dwelling units, then you are required to submit a rental
-            </span>
+          <span>dwelling units, then you are required to submit a rental</span>
           <span>registry form for all of your properties.</span>
         </p>
+        <br />
+        <br />
         <div>
           <NewFormButton />
         </div>
-          <br></br>
-           <AboutButton />
+        <br></br>
+        <AboutButton />
       </div>
       <Footer />
     </div>
   );
 }
- 
+
 export default Home;
