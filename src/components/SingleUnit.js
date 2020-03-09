@@ -262,11 +262,11 @@ export class SingleUnit extends Component {
                     <div className="formSubmitContainer">
                       <h4> Was there any tenancy termination in this unit in the last calendar year?</h4>
                       <Button
-                        className="submit-new-form formButton" onClick={this.warm}>
+                        className="submit-new-form homeButtons buttonColor buttons" onClick={this.warm}>
                         <span>YES</span>
                       </Button>
                       <Button
-                        className="submit-new-form formButton" onClick={this.cool}>
+                        className="submit-new-form homeButtons buttonColor buttons" onClick={this.cool}>
                         <span>NO</span>
                       </Button>
                     </div>

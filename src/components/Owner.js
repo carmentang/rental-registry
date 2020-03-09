@@ -90,7 +90,7 @@ const Owner = inject('store')(
                           <Form.Label>Year of Acquisition</Form.Label>
                         </p>
                       </div>
-                      <h1>Rental Property Address</h1>
+                      <h4>Rental Property Address</h4>
                       <div className="grid4">
                         <p>
                           <Form.Control
@@ -135,18 +135,20 @@ const Owner = inject('store')(
                   <>
                     <h4 className="blueText centeredText"> Does this property have more than one unit?</h4>
                     <div className="buttonWrapper">
-                      <Button
-                        className="submit-new-form homeButtons buttonColor"
-                        onClick={this.handleHide}
-                      >
-                        <span>YES</span>
-                      </Button>
-                      <Button
-                        className="submit-new-form homeButtons buttonColor"
-                        onClick={this.saveAndContinue}
-                      >
-                        <span>NO</span>
-                      </Button>
+                      <div className='buttonGrid'>
+                        <Button
+                          className="submit-new-form homeButtons buttonColor buttons"
+                          onClick={this.handleHide}
+                        >
+                          <span>YES</span>
+                        </Button>
+                        <Button
+                          className="submit-new-form homeButtons buttonColor buttons"
+                          onClick={this.saveAndContinue}
+                        >
+                          <span>NO</span>
+                        </Button>
+                      </div>
                     </div>
                   </>
                 ) : (
