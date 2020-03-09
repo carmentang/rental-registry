@@ -118,14 +118,6 @@ export class UnitDetailForm extends Component {
                 <Form.Label>Occupancy Status</Form.Label>
               </p>
               <p>
-                {renderOwnerDetail()}
-                {/* {values.values.occupancyStatus === "Other" &&
-                  <Form.Control type="text" onChange={this.props.handleChange('occupancyStatusDetails')}
-                    defaultValue={values.occupancyStatusOther} />
-                  <Form.Label>Please describe occupancy status:</Form.Label>
-                } */}
-              </p>
-              <p>
                 <Form.Control as="select" onChange={this.props.handleChange('monthOccupied')}
                   defaultValue={values.monthOccupied}>
                   {monthList}
@@ -139,8 +131,6 @@ export class UnitDetailForm extends Component {
                 </Form.Control>
                 <Form.Label>Start year of occupancy</Form.Label>
               </p>
-            </div>
-            <div className='grid4'>
               <p>
                 <Form.Control as="select" onChange={this.props.handleChange('monthsRented')}
                   defaultValue={values.monthsRented}>
@@ -148,6 +138,13 @@ export class UnitDetailForm extends Component {
                 </Form.Control>
                 <Form.Label># Months occupied last year</Form.Label>
               </p>
+            </div>
+            <div>
+              <p>
+                {renderOwnerDetail()}
+              </p>
+            </div>
+            <div className='grid4'>
               <p>
                 <Form.Control type="text" onChange={this.props.handleChange('previousJanRent')}
                   defaultValue={values.previousJanRent}>
