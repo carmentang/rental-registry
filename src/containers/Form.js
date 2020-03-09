@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 
 import Owner from '../components/Owner';
 import Thanks from '../components/Thanks';
-import Unit from '../components/Unit';
+import SingleUnit from '../containers/SingleUnit';
 
 const Form = inject('store')(
   observer(
     class Form extends Component {
       state = {
         step: 1,
-        isHidden: false,
+        isActive: true,
         firstName: '',
         lastName: '',
         ownership: '',
@@ -22,7 +22,6 @@ const Form = inject('store')(
         zipcode: '',
         units: [
           {
-            id: '',
             unitNumber: Number,
             bedrooms: Number,
             bathrooms: Number,
@@ -40,10 +39,10 @@ const Form = inject('store')(
             currentRentAmount: Number,
             evictions: [
               {
-                numberOfEvictions: Number,
+                numberOfEvictions: '',
                 evictionReasons: ''
               }
-            ]
+            ],
           }
         ]
       };
@@ -55,36 +54,12 @@ const Form = inject('store')(
         });
       };
 
-      // addUnit = e => {
-      //   this.setState(prevState => ({
-      //     units: [
-      //       ...prevState.units,
-      //       {
-      //         id: '',
-      //         unitNumber: '',
-      //         bedrooms: '',
-      //         bathrooms: '',
-      //         occupancyStatus: '',
-      //         occupancyStatusDetails: '',
-      //         monthOccupied: '',
-      //         yearOccupied: '',
-      //         monthsRented: '',
-      //         currentJanRent: '',
-      //         collectedJanUtil: '',
-      //         dateRentChanged: '',
-      //         rentChangeAmount: '',
-      //         currentRentAmount: ''
-      //       }
-      //     ]
-      //   }));
-      // };
-
       addUnit = e => {
         if (this.state.units.length < 100) {
           this.setState({
+            isActive: true, 
             units: this.state.units.concat([
               {
-                id: '',
                 unitNumber: '',
                 bedrooms: '',
                 bathrooms: '',
@@ -103,7 +78,20 @@ const Form = inject('store')(
                     numberOfEvictions: '',
                     evictionReasons: ''
                   }
-                ]
+                ],
+              }
+            ])
+          })
+        } // trying conditional 
+      }
+
+      addEviction = e => {
+        if (this.state.evictions.length < 100) {
+          this.setState({
+            evictions: this.state.evictions.concat([
+              {
+                numberOfEvictions: '',
+                evictionReasons: ''
               }
             ])
           })
@@ -117,7 +105,6 @@ const Form = inject('store')(
       handleUnit = e => {
         if (
           [
-            'id',
             'unitNumber',
             'bedrooms',
             'bathrooms',
@@ -132,13 +119,13 @@ const Form = inject('store')(
             'currentRentAmount',
             'evictions',
             'numberOfEvictions',
-            'evictionReasons'
           ].includes(e.target.className)
         ) {
           let units = [...this.state.units];
           units[e.target.dataset.id][e.target.className] = e.target.value;
           this.setState({ units }, () => console.log(this.state.units));
-        } else {
+        } 
+        else {
           this.setState({ [e.target.name]: e.target.value.toUpperCase() });
         }
       };
@@ -146,6 +133,15 @@ const Form = inject('store')(
       handleSubmit = e => {
         e.preventDefault();
       };
+
+      handleShow = () => {
+        this.setState({ isActive: true });
+      };
+
+      handleHide = () => {
+        this.setState({ isActive: false });
+      };
+
 
       render() {
         const { step } = this.state;
@@ -159,7 +155,6 @@ const Form = inject('store')(
           amState,
           zipcode,
           units,
-          id,
           unitNumber,
           bedrooms,
           bathrooms,
@@ -188,7 +183,6 @@ const Form = inject('store')(
           amState,
           zipcode,
           units,
-          id,
           unitNumber,
           bedrooms,
           bathrooms,
@@ -209,20 +203,21 @@ const Form = inject('store')(
 
         switch (step) {
           case 1:
-            return (  
+            return (
               <Owner
                 nextStep={this.nextStep}
                 addUnit={this.addUnit}
+                addEviction={this.addEviction}
                 handleOwner={this.handleOwner}
                 handleSubmit={this.handleSubmit}
                 handleUnit={this.handleUnit}
-                values={values}   
+                values={values}
               />
             );
           case 2:
             return (
-              <Unit
-                addUnit={this.addUnit}
+              <SingleUnit
+                addEviction={this.addEviction}
                 handleOwner={this.handleOwner}
                 handleSubmit={this.handleSubmit}
                 handleUnit={this.handleUnit}

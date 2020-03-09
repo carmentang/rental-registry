@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 
 // import ReasonsForEviction from '../containers/ReasonsForEviction';
-// import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-
-import UnitButtons from '../components/Buttons/UnitButtons';
 
 import * as Types from '../types';
 
-export class Unit extends Component {
+
+export class SingleUnit extends Component {
 
   state = {
     isBlue: true,
@@ -30,15 +30,8 @@ export class Unit extends Component {
     this.setState({ isRed: true });
   };
 
-  hideRed = () => {
-    this.setState({ isRed: false });
-  };
   showViolet = () => {
     this.setState({ isViolet: true });
-  };
-
-  hideViolet = () => {
-    this.setState({ isViolet: false });
   };
 
   warm = () => {
@@ -70,15 +63,14 @@ export class Unit extends Component {
           dateRentChangedId = `dateRentChanged-${idx}`,
           rentChangeAmountId = `rentChangeAmount-${idx}`,
           currentRentAmountId = `currentRentAmount-${idx}`
-
         return (
           <>
+            <Header />
             <div >
               <Form key={idx}
                 className="formBody"
                 onChange={this.props.handleUnit}
               >
-                <h5>Entry #{idx + 1}</h5>
                 <h1>Occupancy</h1>
                 <Form.Row>
                   <Col>
@@ -100,7 +92,7 @@ export class Unit extends Component {
                       id={bedroomId}
                       defaultValue={values.units[idx].bedrooms}
                       className="bedrooms"
-                    > <option></option>
+                    ><option></option>
                       <option>0</option>
                       <option>1</option>
                       <option>2</option>
@@ -119,8 +111,7 @@ export class Unit extends Component {
                       id={bathroomId}
                       defaultValue={values.units[idx].bathrooms}
                       className="bathrooms"
-                    >
-                      <option></option>
+                    > <option></option>
                       <option>0</option>
                       <option>1</option>
                       <option>2</option>
@@ -302,14 +293,12 @@ export class Unit extends Component {
                           <Col>
                           </Col>
                         </Form.Row>
-                        <UnitButtons
-                          handleOwner={this.props.handleOwner}
-                          handleSubmit={this.props.handleSubmit}
-                          handleUnit={this.props.handleUnit}
-                          nextStep={this.props.nextStep}
-                          values={values}
-                          addUnit={this.props.addUnit}
-                        />
+                        <div style={{ margin: '0 auto', display: 'flex' }}>
+                          <Button style={{ height: 42, width: 165 }} className="submit-new-form formButtonSubmit" onClick={this.props.handleSubmit}>
+                            <span>Submit Form</span>
+                          </Button>
+                        </div>
+
                       </>
                     )
                   }
@@ -322,13 +311,12 @@ export class Unit extends Component {
               </Form>
             </div>
             <br />
+            <Footer />
           </>
         );
-      })
-      // end of map
+      }) // end of map
     )
   }
 }
 
-export default Unit
-
+export default SingleUnit;

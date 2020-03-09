@@ -14,8 +14,8 @@ let sticky = {
 
 let phantom = {
   display: 'block',
-  padding: '8px',
-  height: '28px',
+  padding: '10px',
+  height: '35px',
   width: '100%',
 }
 
