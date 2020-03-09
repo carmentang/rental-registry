@@ -51,7 +51,7 @@ hr {
   background-color: rgb(243, 131, 146);
 }
 .homeButtons {
-  width: 25%;
+  width: 20rem;
   height: 4rem;
 }
 .buttonColor:hover {
