@@ -1,7 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
 import { Button } from 'react-bootstrap';
 
-import { Route } from 'react-router-dom';
 
 const NewFormButton = () => (
   <Route render={({ history }) => (

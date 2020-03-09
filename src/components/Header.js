@@ -1,6 +1,8 @@
 import React from 'react';
-import CaLogo from '../images/ca-logo.png';
 import { Link } from 'react-router-dom';
+
+import CaLogo from '../images/ca-logo.png';
+
 
 const Header = () => {
   return (

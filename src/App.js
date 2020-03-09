@@ -2,12 +2,12 @@ import { Provider } from 'mobx-react';
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import About from './components/About';
-import Home from './components/Home';
-import FormContainer from './components/FormContainer';
+import About from './containers/About';
+import Form from './containers/Form';
+import Home from './containers/Home';
+import Thanks from './components/Thanks';
 
 import RentalDataStore from './rentalDataStore';
-
 
 class App extends Component {
   constructor() {
@@ -22,7 +22,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
-            <Route exact path='/form' component={FormContainer} />
+            <Route exact path='/form' component={Form} />
+            <Route exact path='/thanks' component={Thanks} />
           </Switch>
         </Provider>
       </div>
