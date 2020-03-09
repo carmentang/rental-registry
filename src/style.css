@@ -8,12 +8,11 @@ body {
   min-height: 100%;
   position: relative;
   padding-bottom: 1rem;
+  background-color: #F8F9FF;
+
 }
 Form {
   padding: 3px;
-}
-.wrapper {
-  min-height: 100%;
 }
 .formBody {
   width: 90%;
@@ -66,7 +65,7 @@ hr {
 .homepage-body {
   width: 75%;
   margin: auto;
-  margin-bottom: rem;
+  margin-bottom: 1rem;
 }
 .formSubmitContainer {
   padding-top: 1rem;
@@ -104,15 +103,38 @@ hr {
 }
 
 @media (min-width: 768px) {
+  .wrapperBorder {
+    min-height: 100%;
+    margin: 0 20% 0 20%;
+    border: 1px solid black;
+    border-top: none;
+    background-color: white;
+  }
+  h1{
+    margin: 0 !important;
+  }
   .homepage-body {
     width: 50%;
     margin: auto;
   }
-  .buttonWrapper {
+  .homeButtonWrapper {
     padding-top: 8rem;
+  }
+  .buttonWrapper {
+    padding-top: 3rem;
   }
   .gridWrapper {
     display: grid;
+  }
+  .buttons {
+    width: 5rem;
+    height: 4rem;
+    margin: 1rem;
+  }
+  .buttonGrid {
+    padding: .5rem;
+    grid-template-columns: 50% 50%;
+    margin: auto;
   }
   .grid2 {
     display: grid;

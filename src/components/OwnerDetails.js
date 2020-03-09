@@ -16,7 +16,7 @@ export class OwnerDetails extends Component {
     return (
       <React.Fragment>
         <Header />
-        <div className="wrapper, main">
+        <div className="wrapper, wrapperBorder">
           <div className="wrapperContent">
             <h1 className="formHeader">Submit New Rental Registry Form</h1>
             <OwnerDetailForm
@@ -28,20 +28,18 @@ export class OwnerDetails extends Component {
             <h4 className="blueText centeredText"> Does this property have more than one unit?</h4>
             <div className="buttonWrapper">
               <div className='buttonGrid'>
-                <Button className="submit-new-form homeButtons buttonColor" onClick={this.saveAndContinue}>
+                <Button className="submit-new-form homeButtons buttonColor buttons" onClick={this.saveAndContinue}>
                   <span>YES</span>
                 </Button>
-              </div>
-              <div className='buttonGrid'>
-                <Button className="submit-new-form homeButtons buttonColor" onClick={this.saveAndContinue}>
+                <Button className="submit-new-form homeButtons buttonColor buttons" onClick={this.saveAndContinue}>
                   <span>NO</span>
                 </Button>
               </div>
             </div>
           </div>
-        </div>
-        <div className='footer'>
-          <Footer />
+          <div className='footer'>
+            <Footer />
+          </div>
         </div>
       </React.Fragment>
     )

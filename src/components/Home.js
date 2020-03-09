@@ -11,7 +11,7 @@ const Home = inject('store')(observer(class Home extends Component {
     return (
       <div>
         <Header />
-        <div class="wrapper">
+        <div class="wrapper wrapperBorder">
           <div className="homepage">
             <div className="header">
               <h1 className="homepage-title, header">California Rental Registry</h1>
@@ -20,7 +20,7 @@ const Home = inject('store')(observer(class Home extends Component {
             <p className="homepage-body">
               Welcome! If you are a landlord that owns five or more dwelling units, then you are required to submit a rental registry form for all of your properties.
             </p>
-            <div className="buttonWrapper">
+            <div className="homeButtonWrapper">
               <div className='buttonGrid'>
                 <NewFormButton />
               </div>

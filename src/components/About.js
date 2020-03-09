@@ -13,7 +13,7 @@ const About = () => {
   return (
     <div>
       <Header />
-      <div className="wrapper, main">
+      <div className="wrapper main wrapperBorder">
         <div className="homepage, content">
           <h1 className="homepage-title formHeader">About</h1>
           <hr />
