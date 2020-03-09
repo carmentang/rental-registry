@@ -9,12 +9,8 @@ class Footer extends Component {
   }
   render() {
     return (
-      <footer>
-        <ul className="site-link">
-          <li>
-            &copy; {this.state.year} TechEquity Collaborative
-          </li>
-        </ul>
+      <footer className="site-link centeredText">
+        &copy; {this.state.year} TechEquity Collaborative
       </footer>
     );
   }

@@ -1,40 +1,129 @@
 @charset "utf-8";
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
 
-/** Form styling**/
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 1rem;
+}
+Form {
+  padding: 3px;
+}
+.wrapper {
+  min-height: 100%;
+}
 .formBody {
-  /* border: 1px solid black ; */
-  width: 75%;
+  width: 90%;
   margin: auto;
   padding: 5%;
-}
-.formHeader {
-  color: #444888;
-  text-align: center;
-  color: #305F91;
 }
 hr {
   border-bottom: .5px solid #000000;
 }
-.formButton {
-  margin: .5rem;
-  background-color: coral;
+.formHeader {
+  text-align: center;
+  color: #305F91;
+}
+.header .link {
+  text-decoration: none;
+}
+.header p {
+  color: white;
+}
+.headerLogo {
+  padding: 0 15px 0 15px;
+  float: left;
+  height: 6rem;
+}
+.buttonWrapper {
+  padding-top: 2rem;
+  display: grid;
+}
+.buttonGrid {
+  padding: .5rem;
+  grid-template-columns: 100%;
+  margin: auto;
+}
+.buttonColor {
+  background-color: rgb(243, 131, 146);
+}
+.homeButtons {
+  width: 25%;
+  height: 4rem;
+}
+.buttonColor:hover {
+  background-color: rgb(236, 77, 99);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.buttonColor:active {
+  background-color: #da947b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.homepage-body {
+  width: 75%;
+  margin: auto;
+  margin-bottom: rem;
 }
 .formSubmitContainer {
-  padding-top: 2rem;
+  padding-top: 1rem;
   margin: auto;
   width: 50%;
   text-align: center;
 }
-.formSubmitContainer h4{
+.blueText {
   color: #305F91;
 }
-.formButtonSubmit {
-  background-color: coral;
-  margin: auto;
-  width: 50%;
-  margin-top: .5rem
+.centeredText {
+  text-align: center;
 }
-Col {
-  padding: 20px;
+
+.main {
+ padding: 8px;
+}
+.footer {
+  height: 20px;
+  margin-bottom: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 10rem;
+}
+.logo {
+  margin-top: 4rem;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: auto;
+  margin-top: 4rem;
+}
+.formBody p {
+  margin: 0 3px 10px 3px;
+}
+
+@media (min-width: 768px) {
+  .homepage-body {
+    width: 50%;
+    margin: auto;
+  }
+  .buttonWrapper {
+    padding-top: 8rem;
+  }
+  .gridWrapper {
+    display: grid;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 50% 50%;  
+  }
+  .grid3 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;  
+  }
+  .grid4 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;  
+  }
 }

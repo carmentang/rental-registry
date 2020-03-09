@@ -7,22 +7,14 @@ const AboutButton = () => (
   <Route
     render={({ history }) => (
       <Button
-        className="submit-new-form"
+        className="submit-new-form homeButtons buttonColor"
         onClick={() => {
           history.push('/about');
         }}
-      > 
-        <span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          About
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
-        <span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
+      >
+        <span>About</span>
       </Button>
-    )} // Note: just playing with non-breaking space above...
+    )}
   />
 );
 
