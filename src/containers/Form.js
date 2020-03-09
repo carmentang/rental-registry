@@ -103,7 +103,11 @@ const Form = inject('store')(
         } // trying conditional 
       }
 
-      handleUnitChange = e => {
+      handleOwner = input => event => {
+        this.setState({ [input]: event.target.value })
+      }
+
+      handleUnit = e => {
         if (
           [
             'id',
@@ -196,20 +200,23 @@ const Form = inject('store')(
 
         switch (step) {
           case 1:
-            return (
+            return (  
               <Owner
                 nextStep={this.nextStep}
-                handleChange={this.handleChange}
-                values={values}
+                addUnit={this.addUnit}
+                handleOwner={this.handleOwner}
+                handleSubmit={this.handleSubmit}
+                handleUnit={this.handleUnit}
+                values={values}   
               />
             );
           case 2:
             return (
               <Unit
                 addUnit={this.addUnit}
-                handleChange={this.handleChange}
+                handleOwner={this.handleOwner}
                 handleSubmit={this.handleSubmit}
-                handleUnitChange={this.handleUnitChange}
+                handleUnit={this.handleUnit}
                 nextStep={this.nextStep}
                 values={values}
               />

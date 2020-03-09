@@ -7,6 +7,8 @@ import * as Types from '../types';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Unit from '../components/Unit';
+import UnitButtons from '../components/Buttons/UnitButtons';
 
 const Owner = inject('store')(
   observer(
@@ -17,13 +19,26 @@ const Owner = inject('store')(
         this.props.nextStep();
       };
 
+      state = {
+        isActive: true
+      }
+
+      handleShow = () => {
+        this.setState({ isActive: true });
+      };
+
+      handleHide = () => {
+        this.setState({ isActive: false });
+      };
+
+
       render() {
         const { values } = this.props;
 
         return (
           <React.Fragment>
             <Header />
-            <Form className="formBody">
+            {this.state.isActive && <Form className="formBody">
               <h1 className="formHeader">Submit New Rental Registry Form</h1>
               <hr />
               <h1>Owner</h1>
@@ -31,7 +46,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     type="text"
-                    onChange={this.props.handleChange('firstName')}
+                    onChange={this.props.handleOwner('firstName')}
                     defaultValue={values.firstName}
                   />
                   <Form.Label>First name</Form.Label>
@@ -39,7 +54,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     type="text"
-                    onChange={this.props.handleChange('lastName')}
+                    onChange={this.props.handleOwner('lastName')}
                     defaultValue={values.lastName}
                   />
                   <Form.Label>Last name</Form.Label>
@@ -49,7 +64,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     as="select"
-                    onChange={this.props.handleChange('ownership')}
+                    onChange={this.props.handleOwner('ownership')}
                     defaultValue={values.ownership}
                   >
                     <option></option>
@@ -64,7 +79,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     as="select"
-                    onChange={this.props.handleChange('acquired')}
+                    onChange={this.props.handleOwner('acquired')}
                     defaultValue={values.acquired}
                   >
                     <option></option>
@@ -78,7 +93,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     type="text"
-                    onChange={this.props.handleChange('street')}
+                    onChange={this.props.handleOwner('street')}
                     defaultValue={values.street}
                   />
                   <Form.Label>Street</Form.Label>
@@ -86,7 +101,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     type="text"
-                    onChange={this.props.handleChange('city')}
+                    onChange={this.props.handleOwner('city')}
                     defaultValue={values.city}
                   />
                   <Form.Label>City</Form.Label>
@@ -94,7 +109,7 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     as="select"
-                    onChange={this.props.handleChange('amState')}
+                    onChange={this.props.handleOwner('amState')}
                     defaultValue={values.amState}
                   >
                     <option></option>
@@ -105,29 +120,44 @@ const Owner = inject('store')(
                 <Col>
                   <Form.Control
                     type="text"
-                    onChange={this.props.handleChange('zipcode')}
+                    onChange={this.props.handleOwner('zipcode')}
                     defaultValue={values.zipcode}
                   />
                   <Form.Label>Zipcode</Form.Label>
                 </Col>
               </Row>
               <br></br>
+            </Form>
+            }
+            {this.state.isActive ? (
               <div className="formSubmitContainer">
                 <h4> Does this property have more than one unit?</h4>
                 <Button
-                  className="submit-new-form formButton"
-                  onClick={this.saveAndContinue}
-                >
+                  className="submit-new-form formButton" onClick={this.handleHide}>
                   <span>YES</span>
                 </Button>
                 <Button
-                  className="submit-new-form formButton"
-                  onClick={this.saveAndContinue}
-                >
+                  className="submit-new-form formButton" onClick={this.handleHide}>
                   <span>NO</span>
                 </Button>
               </div>
-            </Form>
+            ) :
+              (<><Unit
+                handleOwner={this.props.handleOwner}
+                handleSubmit={this.props.handleSubmit}
+                handleUnit={this.props.handleUnit}
+                nextStep={this.props.nextStep}
+                values={values} />
+                <UnitButtons
+                  handleOwner={this.props.handleOwner}
+                  handleSubmit={this.props.handleSubmit}
+                  handleUnit={this.props.handleUnit}
+                  nextStep={this.props.nextStep}
+                  values={values}
+                  addUnit={this.props.addUnit}
+                /></>
+              )
+            }
             <br></br>
             <Footer />
           </React.Fragment>
@@ -138,3 +168,4 @@ const Owner = inject('store')(
 );
 
 export default Owner;
+

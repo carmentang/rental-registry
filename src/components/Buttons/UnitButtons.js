@@ -11,8 +11,6 @@ export class UnitDetailFormButton extends Component {
             <Button style={{ height: 42, width: 165 }} className="submit-new-form formButtonSubmit" onClick={this.props.addUnit}>
               <span>+ Add Another Unit</span>
             </Button>
-          </Form.Row>
-          <Form.Row>
             <Button style={{ height: 42, width: 165 }} className="submit-new-form formButtonSubmit" onClick={this.props.handleSubmit}>
               <span>Submit Form</span>
             </Button>

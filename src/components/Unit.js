@@ -32,13 +32,10 @@ export class Unit extends Component {
 
         return (
           <>
-            <div>
-              <Header />
-            </div>
             <div >
               <Form key={idx}
                 className="formBody"
-                onChange={this.props.handleUnitChange}
+                onChange={this.props.handleUnit}
               >
                 <h1>Occupancy</h1>
                 <Form.Row>
@@ -244,14 +241,8 @@ export class Unit extends Component {
                 </Form.Row>*/     }
               </Form>
             </div>
-            <Button style={{ height: 42, width: 165 }} className="submit-new-form formButtonSubmit" onClick={this.props.addUnit}>
-              <span>+ Add Another Unit</span>
-            </Button>
-            <Button style={{ height: 42, width: 165 }} className="submit-new-form formButtonSubmit" onClick={this.props.handleSubmit}>
-              <span>Submit Form</span>
-            </Button>
+
             <br />
-            <Footer />
           </>
         );
       })
