@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Form, Col, Button } from 'react-bootstrap';
 
-import Footer from '../components/Footer';
+import ReasonsForEviction from '../containers/ReasonsForEviction';
 import Header from '../components/Header';
 
 
@@ -12,10 +12,23 @@ import * as Types from '../types';
 
 export class Unit extends Component {
   render() {
+
     const { values } = this.props;
 
     return (
       values.units.map((val, idx) => {
+{ /*       let evictsRows = values.evictions[idx];
+        if (values.units[idx].evictions) {
+          var num = Number(values.units[idx].evictions)
+          var numOfEvictsRows = new Array(num);
+
+          for (var i = 0; i < numOfEvictsRows.length; i++) {
+            evictsRows.push(<ReasonsForEviction
+              handleUnit={this.props.handleUnit}
+              values={this.props}
+            />);
+          }
+        }*/}
         let unitNumberId = `unitNumber-${idx}`,
           bedroomId = `bedrooms-${idx}`,
           bathroomId = `bathrooms-${idx}`,
@@ -28,7 +41,11 @@ export class Unit extends Component {
           collectedJanUtilId = `collectedJanUtil-${idx}`,
           dateRentChangedId = `dateRentChanged-${idx}`,
           rentChangeAmountId = `rentChangeAmount-${idx}`,
-          currentRentAmountId = `currentRentAmount-${idx}`
+          currentRentAmountId = `currentRentAmount-${idx}`,
+          evictionsId = `evictions-${idx}`,
+          numberOfEvictionsId = `numberOfEvictions-${idx}`,
+          evictionReasonsId = `evictionReasons-${idx}`
+
 
         return (
           <>
@@ -224,21 +241,24 @@ export class Unit extends Component {
                     <Form.Label>Rent Amount</Form.Label>
                   </Col>
                 </Form.Row>
-                {/**           <h1>Evictions</h1>
-                <Form.Row>
-                  <Col>
-                    <Form.Control
-                      as="select"
-                      md="4"
-                      value={this.props.numberOfEvictions}
-                      onChange={this.props.handleChange('numberOfEvictions')}
-                    >
-                      {Types.evictedTenantsList}
-                    </Form.Control>
-                    <Form.Label># Evicted tenants last year in this unit</Form.Label>
-                  </Col>
-                  <Col>{}</Col>
-                </Form.Row>*/     }
+                <h1>Evictions</h1>
+                  <Form.Row>
+                    <Col>
+                      <Form.Control 
+                      as="select" 
+                      name={numberOfEvictionsId}
+                      data-id={idx}
+                      md="4" 
+                      id={numberOfEvictionsId} 
+                      className="numberOfEvictions"
+                      >
+                        {Types.evictedTenantsList}
+                      </Form.Control>
+                      <Form.Label># Evicted tenants last year in this unit</Form.Label>
+                    </Col>
+                    <Col>
+                    </Col>
+                  </Form.Row>
               </Form>
             </div>
 

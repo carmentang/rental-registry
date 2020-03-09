@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import { Form } from 'react-bootstrap';
 
-export class ReasonForEviction extends Component {
+export class ReasonsForEviction extends Component {
   render() {
     const { values } = this.props;
     return (
       <React.Fragment>
         <Form>
-          <Form.Control type="text" md="6" onChange={this.props.handleChange('evictionReasons')} defaultValue={values.evictionReasons}>
+          <Form.Control type="text" md="6" onChange={this.props.handleUnit('evictionReasons')} defaultValue={values.evictions.}>
           </Form.Control>
           <Form.Label>Reasons for evictions in this unit</Form.Label>
         </Form>
@@ -17,4 +17,4 @@ export class ReasonForEviction extends Component {
   }
 }
 
-export default ReasonForEviction
+export default ReasonsForEviction
