@@ -97,8 +97,15 @@ const Form = inject('store')(
                 collectedJanUtil: '',
                 dateRentChanged: '',
                 rentChangeAmount: '',
-                currentRentAmount: ''
-              }])
+                currentRentAmount: '',
+                evictions: [
+                  {
+                    numberOfEvictions: '',
+                    evictionReasons: ''
+                  }
+                ]
+              }
+            ])
           })
         } // trying conditional 
       }
@@ -123,7 +130,9 @@ const Form = inject('store')(
             'collectedJanUtil',
             'rentChangeAmount',
             'currentRentAmount',
-            'evictions'
+            'evictions',
+            'numberOfEvictions',
+            'evictionReasons'
           ].includes(e.target.className)
         ) {
           let units = [...this.state.units];

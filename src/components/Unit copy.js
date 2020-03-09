@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Form, Col } from 'react-bootstrap';
 
-import ReasonForEviction from './ReasonForEviction';
+import ReasonForEviction from './ReasonsForEviction';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -24,7 +24,6 @@ export class Unit extends Component {
           values={this.props}
         />);
       }
-
     }
 
     // let OccupancyStatusDetails = "";
