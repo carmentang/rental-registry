@@ -35,7 +35,15 @@ hr {
 .headerLogo {
   padding: 0 15px 0 15px;
   float: left;
-  height: 6rem;
+  height: 4rem;
+}
+.link p {
+  size: 1.5rem;
+}
+.pt-navbar-heading {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
 }
 .buttonWrapper {
   padding-top: 2rem;
