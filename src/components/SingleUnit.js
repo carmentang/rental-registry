@@ -59,7 +59,9 @@ export class SingleUnit extends Component {
           yearOccupiedId = `yearOccupied-${idx}`,
           monthsRentedId = `monthsRented-${idx}`,
           currentJanRentId = `currentJanRent-${idx}`,
-          collectedJanUtilId = `collectedJanUtil-${idx}`,
+          utilitiesId = `utilities-${idx}`,
+          landlordChargesId = `landlordCharges-${idx}`,
+          totalChargesId = `totalCharges-${idx}`,
           dateRentChangedId = `dateRentChanged-${idx}`,
           rentChangeAmountId = `rentChangeAmount-${idx}`,
           currentRentAmountId = `currentRentAmount-${idx}`
@@ -208,14 +210,39 @@ export class SingleUnit extends Component {
                     </p>
                     <p>
                       <Form.Control
-                        type="text"
-                        name={collectedJanUtilId}
+                        multiple
+                        as="select"
+                        name={utilitiesId}
                         data-id={idx}
-                        id={collectedJanUtilId}
-                        defaultValue={values.units[idx].collectedJanUtil}
-                        className="collectedJanUtil"
+                        id={utilitiesId}
+                        defaultValue={values.units[idx].utilities}
+                        className="utilities"
+                      >{Types.utilitiesList}
+                      </Form.Control>
+                      <Form.Label>January Utilities included in the rent (select all that apply)</Form.Label>
+                    </p>
+                    <p>
+                      <Form.Control
+                        multiple
+                        as="select"
+                        name={landlordChargesId}
+                        data-id={idx}
+                        id={landlordChargesId}
+                        defaultValue={values.units[idx].landlordCharges}
+                        className="landlordCharges"
+                      >{Types.landlordChargesList}</Form.Control>
+                      <Form.Label>Additional charges from landlord, not included in rent (select all that apply)</Form.Label>
+                    </p>
+                    <p>
+                      <Form.Control
+                        type="text"
+                        name={totalChargesId}
+                        data-id={idx}
+                        id={totalChargesId}
+                        defaultValue={values.units[idx].totalCharges}
+                        className="totalCharges"
                       ></Form.Control>
-                      <Form.Label>Utility Amount Collected in January</Form.Label>
+                      <Form.Label>Total additional charges</Form.Label>
                     </p>
                   </div>
                   <h1>Rent Increase</h1>
@@ -303,10 +330,10 @@ export class SingleUnit extends Component {
                       )
                     }
                     )) : this.showViolet ? (<div className='buttonWrapper'>
-                    <div className="buttonGrid">
-                        <Button className="submit-new-form  homeButtons buttonColor"onClick={this.props.handleSubmit}>
-                        <span>Submit Form</span>
-                      </Button>
+                      <div className="buttonGrid">
+                        <Button className="submit-new-form  homeButtons buttonColor" onClick={this.props.handleSubmit}>
+                          <span>Submit Form</span>
+                        </Button>
                       </div>
                     </div>) : (null))
                   }

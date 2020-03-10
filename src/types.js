@@ -36,3 +36,13 @@ const evictedTenants = ["", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 export const evictedTenantsList = evictedTenants.map((evicted) =>
   <option>{evicted}</option>
 )
+
+const utilities = ['electricity', 'gas', 'internet', 'parking', 'trash', 'water']
+export const utilitiesList = utilities.map((utility) => 
+<option>{utility}</option>
+)
+
+const landlordCharges = ['electricity', 'gas', 'internet', 'parking', 'pets', 'trash', 'water']
+export const landlordChargesList = landlordCharges.map((landlordCharge) =>
+  <option>{landlordCharge}</option>
+)
