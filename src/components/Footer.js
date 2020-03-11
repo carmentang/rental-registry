@@ -28,6 +28,8 @@ class Footer extends Component {
     }
   }
   render() {
+    console.log("Render Footer")
+    
     return (
       <div style={{ ...sticky, ...phantom }}>
         <footer className="site-link centeredText">

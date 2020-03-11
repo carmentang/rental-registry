@@ -45,6 +45,7 @@ export class SingleUnit extends Component {
   }
 
   render() {
+    console.log("Render SingleUnit");
 
     const { values } = this.props;
 

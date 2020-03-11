@@ -48,10 +48,11 @@ export class Unit extends Component {
   }
 
   render() {
-
+    console.log("Render Unit")
     const { values } = this.props;
 
     return (
+
       values.units.map(({ val, evictions }, idx) => {
         let unitNumberId = `unitNumber-${idx}`,
           bedroomId = `bedrooms-${idx}`,
@@ -336,12 +337,16 @@ export class Unit extends Component {
                         </>
                       )
                     }
-                    )) : this.showViolet ? (<div className='buttonWrapper'>
-                      <div className='buttonGrid'>
-                        <Button className="submit-new-form  homeButtons buttonColor" onClick={this.props.handleSubmit}>
-                          <span>Submit Form</span>
-                        </Button>
-                      </div>
+                    )) : this.showViolet ? (
+                      <div className='buttonWrapper'>
+                      <UnitButtons
+                        handleOwner={this.props.handleOwner}
+                        handleSubmit={this.props.handleSubmit}
+                        handleUnit={this.props.handleUnit}
+                        nextStep={this.props.nextStep}
+                        values={values}
+                        addUnit={this.props.addUnit}
+                      />
                     </div>) : (null))
                   }
                 </div>

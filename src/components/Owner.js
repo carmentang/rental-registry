@@ -1,5 +1,5 @@
 import { inject, observer } from 'mobx-react';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { Form, Button, } from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ import Unit from '../components/Unit';
 
 const Owner = inject('store')(
   observer(
-    class Owner extends Component {
+    class Owner extends PureComponent {
       saveAndContinue = e => {
         e.preventDefault();
         this.props.store.storeOwnerAndPropertyData(this.props.values);
@@ -32,6 +32,8 @@ const Owner = inject('store')(
       };
 
       render() {
+        console.log("Render Owner");
+
         const { values } = this.props;
 
         return (

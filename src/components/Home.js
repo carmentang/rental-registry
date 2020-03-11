@@ -8,6 +8,8 @@ import AboutButton from './AboutButton';
 
 const Home = inject('store')(observer(class Home extends Component {
   render() {
+    console.log("Render Home")
+    
     return (
       <div>
         <Header />

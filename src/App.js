@@ -16,6 +16,8 @@ class App extends Component {
   }
 
   render() {
+    console.log("Render App")
+
     return (
       <div className="wrapper">
         <Provider store={this.store}>

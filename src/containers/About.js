@@ -6,7 +6,7 @@ import TechEquityLogo from '../images/tech-equity.png';
 
 
 const About = () => {
-
+  console.log("Render About");
 
   return (
     <div>

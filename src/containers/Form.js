@@ -33,8 +33,8 @@ const Form = inject('store')(
             monthsRented: Number,
             previousJanRent: '',
             currentJanRent: '',
-            utilities:'',
-            landlordCharges: '',
+            utilities: [],
+            landlordCharges: [],
             totalCharges: '',
             dateRentChanged: '',
             rentchangeAmount: Number,
@@ -118,7 +118,7 @@ const Form = inject('store')(
             'currentJanRent',
             'utilities',
             'landlordCharges',
-            'totalCharges',            
+            'totalCharges',
             'rentChangeAmount',
             'currentRentAmount',
             'evictions',
@@ -148,6 +148,8 @@ const Form = inject('store')(
 
 
       render() {
+        console.log("Render Form");
+        
         const { step } = this.state;
         const {
           firstName,

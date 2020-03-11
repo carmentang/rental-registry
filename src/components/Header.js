@@ -5,6 +5,8 @@ import CaLogo from '../images/ca-logo.png';
 
 
 const Header = () => {
+  console.log("Render Header")
+  
   return (
     <nav className="pt-navbar">
       <div className="pt-navbar-group pt-align-left">

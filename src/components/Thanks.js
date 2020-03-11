@@ -7,6 +7,8 @@ import NewFormButton from '../components/Buttons/NewFormButton';
 import CaLogo from '../images/ca-logo.png';
 
 const Thanks = () => {
+  console.log("Render Thanks");
+  
   return (
     <>
       <Header />
