@@ -26,9 +26,10 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
     };
   }
 
-    renderInvisibleFormForNetlify(evictRows) {
+    renderInvisibleFormForNetlify() {
       return (
-        <form name="rental-data" netlify netlify-honeypot="bot-field" hidden>
+        <form name="rental-data" method="post" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+            <input type="hidden" name="form-name" value="rental-data" />
             {Object.keys(this.props.store.data).map(key => (
                 <input type="text" name={key} />
             ))}
