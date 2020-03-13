@@ -7,7 +7,7 @@ export class ReasonForEviction extends Component {
     return (
       <React.Fragment>
         <Form>
-          <Form.Control type="text" md="6" onChange={this.props.handleChange('evictionReasons')} defaultValue={values.evictionReasons}>
+          <Form.Control type="text" md="6" onChange={this.props.handleChange(`unit-${this.props.unitIndex}-eviction-${this.props.evictionIndex}-reason`)} defaultValue={values.evictionReasons}>
           </Form.Control>
           <Form.Label>Reasons for evictions in this unit</Form.Label>
         </Form>

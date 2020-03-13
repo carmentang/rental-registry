@@ -12,7 +12,7 @@ export class UnitDetailFormButton extends Component {
             </Button>
           </Form.Row>
           <Form.Row>
-            <Button className="submit-new-form formButtonSubmit" onClick={this.submitForm}>
+            <Button className="submit-new-form formButtonSubmit" onClick={this.props.submitForm}>
               <span>Submit Form</span>
             </Button>
           </Form.Row>
