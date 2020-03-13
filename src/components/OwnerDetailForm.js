@@ -13,7 +13,6 @@ const statesList = states.map((state) =>
 const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends Component {
   saveAndContinue = (e) => {
     e.preventDefault()
-    this.props.store.storeOwnerAndPropertyData(this.props.values);
     this.props.nextStep()
   }
 

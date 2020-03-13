@@ -7,6 +7,7 @@ import UnitDetailFormButton from './UnitDetailFormButton'
 
 const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   submitForm = (e) => {
+      this.props.store.sendDataToNetlify();
     e.preventDefault()
     // submit function
   }
@@ -25,19 +26,30 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
     };
   }
 
+    renderInvisibleFormForNetlify(evictRows) {
+      return (
+        <form name="rental-data" netlify netlify-honeypot="bot-field" hidden>
+            {Object.keys(this.props.store.data).map(key => (
+                <input type="text" name={key} />
+            ))}
+        </form>
+      );
+    }
 
   render() {
 
     return (
       <React.Fragment>
+        {this.renderInvisibleFormForNetlify()}
         <Header />
         <h1 className="formHeader">Submit New Rental Registry Form</h1>
         <hr />    
-        {this.state.unitDetailFormRows.map((r) => (
+        {this.state.unitDetailFormRows.map((r, index) => (
           <UnitDetailForm
             nextStep={this.props.nextStep}
             handleChange={this.props.handleChange}
             values={this.props}
+            index={index+1}
           />
         ))}
         <UnitDetailFormButton
@@ -46,6 +58,7 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
           values={this.props}
           unitDetailFormRows={this.state.unitDetailFormRows}
           addAnotherUnit={this.addAnotherUnit}
+          submitForm={this.submitForm}
         />
         <Footer />
       </React.Fragment>

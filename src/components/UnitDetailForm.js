@@ -36,6 +36,7 @@ export class UnitDetailForm extends Component {
 
   render() {
     const { values } = this.props;
+    const unitIndex = this.props.index;
     var evictsRows = []
     if (values.values.numberOfEvictions) {
       var num = Number(this.props.values.values.numberOfEvictions)
@@ -45,6 +46,8 @@ export class UnitDetailForm extends Component {
         evictsRows.push(<ReasonForEviction
           handleChange={this.props.handleChange}
           values={this.props}
+          unitIndex={unitIndex}
+          evictionIndex={i+1}
         />);
       }
 
@@ -65,12 +68,12 @@ export class UnitDetailForm extends Component {
           <h1>Occupancy</h1>
           <Form.Row>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('unitNumber')}
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-unitNumber`)}
                 defaultValue={values.unitNumber} />
               <Form.Label>Unit #</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('bedrooms')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bedrooms`)}
                 defaultValue={values.bedrooms}>
                 <option></option>
                 <option>0</option>
@@ -84,7 +87,7 @@ export class UnitDetailForm extends Component {
               <Form.Label># Bedrooms</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('bathrooms')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bathrooms`)}
                 defaultValue={values.bathrooms}>
                 <option></option>
                 <option>1</option>
@@ -97,7 +100,7 @@ export class UnitDetailForm extends Component {
           </Form.Row>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('occupancyStatus')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatus`)}
                 defaultValue={values.occupancyStatus}>
                 <option></option>
                 <option>Manager/Owner unit</option>
@@ -109,20 +112,20 @@ export class UnitDetailForm extends Component {
             </Col>
             {values.values.occupancyStatus === "Other" &&
               <Col>
-                <Form.Control type="text" onChange={this.props.handleChange('occupancyStatusDetails')}
+                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatusDetails`)}
                   defaultValue={values.occupancyStatusOther} />
                 <Form.Label>Please describe occupancy status:</Form.Label>
               </Col>
             }
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthOccupied')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthOccupied`)}
                 defaultValue={values.monthOccupied}>
                 {monthList}
               </Form.Control>
               <Form.Label>Start month of occupancy</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('yearOccupied')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-yearOccupied`)}
                 defaultValue={values.yearOccupied}>
                 {yearsList}
               </Form.Control>
@@ -131,20 +134,20 @@ export class UnitDetailForm extends Component {
           </Form.Row>
           <Form.Row>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('monthsRented')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthsRented`)}
                 defaultValue={values.monthsRented}>
                 {monthsRentedList}
               </Form.Control>
               <Form.Label># Months occupied last year</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('previousJanRent')}
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-previousJanRent`)}
                 defaultValue={values.previousJanRent}>
               </Form.Control>
               <Form.Label>January rent amount for current year</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('collectedJanUtil')}
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-collectedJanUtil`)}
                 defaultValue={values.collectedJanUtil}>
               </Form.Control>
               <Form.Label>Utility Amount Collected in January</Form.Label>
@@ -153,19 +156,19 @@ export class UnitDetailForm extends Component {
           <h1>Rent Increase</h1>
           <Form.Row>
             <Col>
-              <Form.Control type="date" onChange={this.props.handleChange('dateRentChanged')}
+              <Form.Control type="date" onChange={this.props.handleChange(`unit-${unitIndex}-dateRentChanged`)}
                 defaultValue={values.dateRentChanged}>
               </Form.Control>
               <Form.Label>Date of last effective rent increase/decrease</Form.Label>
             </Col>
             <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('rentChangeAmount')}
+              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-rentChangeAmount`)}
                 defaultValue={values.rentChangeAmount}>
               </Form.Control>
               <Form.Label>Rent amount for month prior to rent increase/decrease</Form.Label>
             </Col>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('currentRentAmount')}
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-currentRentAmount`)}
                 defaultValue={values.currentRentAmount}>
               </Form.Control>
               <Form.Label>Rent Amount</Form.Label>
@@ -174,7 +177,7 @@ export class UnitDetailForm extends Component {
           <h1>Evictions</h1>
           <Form.Row>
             <Col>
-              <Form.Control as="select" md="4" value={this.props.numberOfEvictions} onChange={this.props.handleChange('numberOfEvictions')}>
+              <Form.Control as="select" md="4" value={this.props.numberOfEvictions} onChange={this.props.handleChange(`unit-${unitIndex}-numberOfEvictions`)}>
                 {evictedTenantsList}
               </Form.Control>
               <Form.Label># Evicted tenants last year in this unit</Form.Label>

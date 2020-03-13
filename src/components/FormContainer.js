@@ -58,6 +58,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
 
   handleChange = input => event => {
     this.setState({ [input]: event.target.value })
+    this.props.store.updateValue(input, event.target.value)
   }
 
 
