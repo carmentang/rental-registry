@@ -30,8 +30,8 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
       return (
         <form name="rental-data" method="post" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
             <input type="hidden" name="form-name" value="rental-data" />
-            {Object.keys(this.props.store.data).map(key => (
-                <input type="text" name={key} />
+            {Object.entries(this.props.store.data).map(([key, value]) => (
+                <input type="text" name={key} value={value} />
             ))}
         </form>
       );
