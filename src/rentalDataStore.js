@@ -18,8 +18,7 @@ export default MyClassName;
 export default class RentalDataStore {
     // Test: hardcoding a limit of 5 units & two evictions per unit to try to fix Netlify form
     data = {
-        'firstName': '',
-        'lastName': '',
+        'ownerName': '',
         'ownership': '',
         'acquired': '',
         'street': '',

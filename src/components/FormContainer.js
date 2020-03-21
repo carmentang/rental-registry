@@ -11,8 +11,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
 
   state = {
     step: 1,
-    firstName: '',
-    lastName: '',
+    ownerName: '',
     ownership: '',
     acquired: '',
     street: '',
@@ -65,8 +64,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
   render() {
     const { step } = this.state;
     const {
-      firstName,
-      lastName,
+      ownerName,
       ownership,
       acquired,
       street,
@@ -93,8 +91,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     } = this.state;
 
     const values = {
-      firstName,
-      lastName,
+      ownerName,
       ownership,
       acquired,
       street,
