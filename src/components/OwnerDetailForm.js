@@ -27,14 +27,9 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
           <h1>Owner</h1>
           <Row>
             <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('firstName')}
-                defaultValue={values.firstName} />
-              <Form.Label>First name</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('lastName')}
-                defaultValue={values.lastName} />
-              <Form.Label>Last name</Form.Label>
+              <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
+                defaultValue={values.ownerName} />
+              <Form.Label>Owner Name</Form.Label>
             </Col>
           </Row>
           <Row>
