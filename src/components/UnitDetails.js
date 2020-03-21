@@ -60,6 +60,7 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
           unitDetailFormRows={this.state.unitDetailFormRows}
           addAnotherUnit={this.addAnotherUnit}
           submitForm={this.submitForm}
+          hasMultipleUnits={this.props.store.hasMultipleUnits}
         />
         <Footer />
       </React.Fragment>

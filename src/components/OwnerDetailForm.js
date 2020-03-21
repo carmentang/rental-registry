@@ -11,8 +11,15 @@ const statesList = states.map((state) =>
   <option>{state}</option>
 )
 const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends Component {
-  saveAndContinue = (e) => {
+  saveAndContinueMultiple = (e) => {
     e.preventDefault()
+    this.props.store.setHasMultipleUnits(true);
+    this.props.nextStep()
+  }
+
+  saveAndContinueSingle = (e) => {
+    e.preventDefault()
+    this.props.store.setHasMultipleUnits(false);
     this.props.nextStep()
   }
 
@@ -83,10 +90,10 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
           <br></br>
           <div className="formSubmitContainer">
             <h4> Does this property have more than one unit?</h4>
-            <Button className="submit-new-form formButton" onClick={this.saveAndContinue}>
+            <Button className="submit-new-form formButton" onClick={this.saveAndContinueMultiple}>
               <span>YES</span>
             </Button>
-            <Button className="submit-new-form formButton" onClick={this.saveAndContinue}>
+            <Button className="submit-new-form formButton" onClick={this.saveAndContinueSingle}>
               <span>NO</span>
             </Button>
           </div>

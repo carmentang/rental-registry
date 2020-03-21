@@ -6,11 +6,13 @@ export class UnitDetailFormButton extends Component {
     return (
       <React.Fragment>
         <Form>
-          <Form.Row>
-            <Button className="submit-new-form formButtonSubmit" onClick={this.props.addAnotherUnit}>
-              <span>+ Add Another Unit</span>
-            </Button>
-          </Form.Row>
+            {this.props.hasMultipleUnits ? (
+              <Form.Row>
+                <Button className="submit-new-form formButtonSubmit" onClick={this.props.addAnotherUnit}>
+                  <span>+ Add Another Unit</span>
+                </Button>
+              </Form.Row>
+            ) : null}
           <Form.Row>
             <Button className="submit-new-form formButtonSubmit" onClick={this.props.submitForm}>
               <span>Submit Form</span>
