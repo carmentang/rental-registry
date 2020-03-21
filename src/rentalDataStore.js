@@ -16,6 +16,8 @@ export default MyClassName;
  */
 
 export default class RentalDataStore {
+    hasMultipleUnits = true;
+
     // Test: hardcoding a limit of 5 units & two evictions per unit to try to fix Netlify form
     data = {
         'firstName': '',
@@ -112,6 +114,10 @@ export default class RentalDataStore {
         this.data[key] = value;
     }
 
+    setHasMultipleUnits(value) {
+        this.hasMultipleUnits = value;
+    }
+
     sendDataToNetlify() {
         const encode = (data) => {
             return Object.keys(data)
@@ -128,5 +134,6 @@ export default class RentalDataStore {
 
 decorate(RentalDataStore, {
     data: observable,
+    hasMultipleUnits: observable,
     sendDataToNetlify: action,
 });
