@@ -26,9 +26,11 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
           <hr />
           <h1>Owner</h1>
           <Row>
+            <Col>
               <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
                 defaultValue={values.ownerName} />
               <Form.Label>Owner name</Form.Label>
+            </Col>
           </Row>
           <Row>
             <Col>
