@@ -26,6 +26,11 @@ hr {
   width: 50%;
   text-align: center;
 }
+.evictionButtonContainer {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
 .formSubmitContainer h4{
   color: #305F91;
 }
@@ -37,4 +42,7 @@ hr {
 }
 Col {
   padding: 20px;
+}
+.fullWidth {
+  width: 100%;
 }

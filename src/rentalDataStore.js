@@ -17,6 +17,7 @@ export default MyClassName;
 
 export default class RentalDataStore {
     hasMultipleUnits = true;
+    hasEvictions = [true, true, true, true, true];
 
     // Test: hardcoding a limit of 5 units & two evictions per unit to try to fix Netlify form
     data = {
@@ -40,8 +41,9 @@ export default class RentalDataStore {
         'unit-1-dateRentChanged': '',
         'unit-1-rentChangeAmount': '',
         'unit-1-currentRentAmount': '',
-        'unit-1-numberOfEvictions': '',
+        'unit-1-eviction-1-month': '',
         'unit-1-eviction-1-reason': '',
+        'unit-1-eviction-2-month': '',
         'unit-1-eviction-2-reason': '',
         'unit-2-unitNumber': '',
         'unit-2-bedrooms': '',
@@ -56,8 +58,9 @@ export default class RentalDataStore {
         'unit-2-dateRentChanged': '',
         'unit-2-rentChangeAmount': '',
         'unit-2-currentRentAmount': '',
-        'unit-2-numberOfEvictions': '',
+        'unit-2-eviction-1-month': '',
         'unit-2-eviction-1-reason': '',
+        'unit-2-eviction-2-month': '',
         'unit-2-eviction-2-reason': '',
         'unit-3-unitNumber': '',
         'unit-3-bedrooms': '',
@@ -72,8 +75,9 @@ export default class RentalDataStore {
         'unit-3-dateRentChanged': '',
         'unit-3-rentChangeAmount': '',
         'unit-3-currentRentAmount': '',
-        'unit-3-numberOfEvictions': '',
+        'unit-3-eviction-1-month': '',
         'unit-3-eviction-1-reason': '',
+        'unit-3-eviction-2-month': '',
         'unit-3-eviction-2-reason': '',
         'unit-4-unitNumber': '',
         'unit-4-bedrooms': '',
@@ -88,8 +92,9 @@ export default class RentalDataStore {
         'unit-4-dateRentChanged': '',
         'unit-4-rentChangeAmount': '',
         'unit-4-currentRentAmount': '',
-        'unit-4-numberOfEvictions': '',
+        'unit-4-eviction-1-month': '',
         'unit-4-eviction-1-reason': '',
+        'unit-4-eviction-2-month': '',
         'unit-4-eviction-2-reason': '',
         'unit-5-unitNumber': '',
         'unit-5-bedrooms': '',
@@ -104,17 +109,25 @@ export default class RentalDataStore {
         'unit-5-dateRentChanged': '',
         'unit-5-rentChangeAmount': '',
         'unit-5-currentRentAmount': '',
-        'unit-5-numberOfEvictions': '',
+        'unit-5-eviction-1-month': '',
         'unit-5-eviction-1-reason': '',
+        'unit-5-eviction-2-month': '',
         'unit-5-eviction-2-reason': '',
     };
 
     updateValue(key, value) {
-        this.data[key] = value;
+        // Make sure to only update hardcoded fields that will be accepted by Netlify
+        if (key in this.data) {
+            this.data[key] = value;
+        }
     }
 
     setHasMultipleUnits(value) {
         this.hasMultipleUnits = value;
+    }
+
+    setNoEvictions(unitIndex) {
+        this.hasEvictions[unitIndex] = false;
     }
 
     sendDataToNetlify() {
@@ -134,5 +147,6 @@ export default class RentalDataStore {
 decorate(RentalDataStore, {
     data: observable,
     hasMultipleUnits: observable,
+    hasEvictions: observable,
     sendDataToNetlify: action,
 });

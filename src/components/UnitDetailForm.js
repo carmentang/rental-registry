@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Col } from 'react-bootstrap';
+import { Form, Col, Button } from 'react-bootstrap';
 import ReasonForEviction from './ReasonForEviction'
-
-const months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const monthList = months.map((month) =>
-  <option>{month}</option>
-);
+import {inject, observer} from "mobx-react";
+import {monthList} from "../constants";
 
 const days = ["", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 const daysList = days.map((day) =>
@@ -32,36 +29,42 @@ const evictedTenantsList = evictedTenants.map((evicted) =>
   <option>{evicted}</option>
 )
 
-export class UnitDetailForm extends Component {
+const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numEvictionRows: 0,
+    };
+  }
+
+  addEvictionRow = (e) => {
+    e.preventDefault();
+    var numEvictionRows = this.state.numEvictionRows;
+    numEvictionRows += 1;
+    this.setState({ numEvictionRows: numEvictionRows });
+  }
+
+  setNoEvictions = (e) => {
+    e.preventDefault();
+    this.props.store.setNoEvictions(this.props.index - 1);
+  }
+
+  renderEvictionRows() {
+    var evictionRows = [];
+    for (let i = 0; i < this.state.numEvictionRows; i++) {
+        evictionRows.push(<ReasonForEviction
+            handleChange={this.props.handleChange}
+            unitIndex={this.props.index}
+            evictionIndex={i+1}
+        />);
+    }
+    return evictionRows;
+  }
 
   render() {
     const { values } = this.props;
     const unitIndex = this.props.index;
-    var evictsRows = []
-    if (values.values.numberOfEvictions) {
-      var num = Number(this.props.values.values.numberOfEvictions)
-      var numOfEvictsRows = new Array(num);
 
-      for (var i = 0; i < numOfEvictsRows.length; i++) {
-        evictsRows.push(<ReasonForEviction
-          handleChange={this.props.handleChange}
-          values={this.props}
-          unitIndex={unitIndex}
-          evictionIndex={i+1}
-        />);
-      }
-
-    }
-
-    // let OccupancyStatusDetails = "";
-    // if (values.values.occupancyStatus == "Other") {
-    //   OccupancyStatusDetails =
-    //     <Col>
-    //       <Form.Control type="text" onChange={this.props.handleChange('occupancyStatusDetails')}
-    //         defaultValue={values.occupancyStatusOther} />
-    //       <Form.Label>If 'other' is selected, please describe:</Form.Label>
-    //     </Col>
-    // }
     return (
       <React.Fragment>
         <Form className="formBody">
@@ -176,20 +179,35 @@ export class UnitDetailForm extends Component {
           </Form.Row>
           <h1>Evictions</h1>
           <Form.Row>
-            <Col>
-              <Form.Control as="select" md="4" value={this.props.numberOfEvictions} onChange={this.props.handleChange(`unit-${unitIndex}-numberOfEvictions`)}>
-                {evictedTenantsList}
-              </Form.Control>
-              <Form.Label># Evicted tenants last year in this unit</Form.Label>
-            </Col>
-            <Col>
-              {evictsRows}
-            </Col>
+              {this.props.store.hasEvictions[unitIndex-1] ? (
+                <div className={this.state.numEvictionRows === 0 ? "evictionButtonContainer" : "fullWidth"}>
+                  {this.state.numEvictionRows === 0 ? (
+                    <div>
+                      <p>
+                        Was there a tenancy termination in this unit in the prior calendar year?
+                      </p>
+                      <Button className="submit-new-form formButton" onClick={this.addEvictionRow}>
+                        <span>YES</span>
+                      </Button>
+                      <Button className="submit-new-form formButton" onClick={this.setNoEvictions}>
+                        <span>NO</span>
+                      </Button>
+                    </div>
+                  ) : (
+                      <div>
+                        {this.renderEvictionRows()}
+                        <Form.Row>
+                          <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add More Tenancy Termination</Button>
+                        </Form.Row>
+                      </div>
+                  )}
+                </div>
+              ) : <Col>No eviction data for this unit</Col>}
           </Form.Row>
         </Form>
       </React.Fragment>
     )
   }
-}
+}));
 
 export default UnitDetailForm
