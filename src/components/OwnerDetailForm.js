@@ -6,10 +6,7 @@ const years = [2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010,
 const yearsList = years.map((year) =>
   <option>{year}</option>
 )
-const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-const statesList = states.map((state) =>
-  <option>{state}</option>
-)
+
 const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends Component {
   saveAndContinueMultiple = (e) => {
     e.preventDefault()
