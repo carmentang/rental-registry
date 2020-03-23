@@ -143,13 +143,13 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 <Form.Control as="select" multiple onChange={this.props.handleChange(`unit-${unitIndex}-includedUtilities`)}>
                   {includedUtilitiesList}
                 </Form.Control>
-                <Form.Label>January Utilities included in the rent (select all that apply)</Form.Label>
+                <Form.Label>January Utilities included in the rent (Hold CTRL/CMD to select all that apply)</Form.Label>
               </p>
               <p>
                 <Form.Control as="select" multiple onChange={this.props.handleChange(`unit-${unitIndex}-additionalCharges`)}>
                   {additionalChargesList}
                 </Form.Control>
-                <Form.Label>Additional charges from landlord, not included in rent (select all that apply)</Form.Label>
+                <Form.Label>Additional charges from landlord, not included in rent (Hold CTRL/CMD to select all that apply)</Form.Label>
               </p>
               <p>
                 <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-totalAdditionalCharges`)}
