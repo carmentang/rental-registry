@@ -191,7 +191,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                         <p>
                           Was there a tenancy termination in this unit in the prior calendar year?
                         </p>
-                        <div className="buttonWrrapp">
+                        <div className="buttonWrapper">
                           <div className="buttonGrid">
                             <Button className="buttons buttonColor" onClick={this.addEvictionRow}>
                               <span>YES</span>
