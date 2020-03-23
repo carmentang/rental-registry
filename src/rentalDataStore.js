@@ -16,6 +16,11 @@ export default MyClassName;
  */
 
 export default class RentalDataStore {
+
+    constructor(history) {
+        this.history = history;
+    }
+
     hasMultipleUnits = true;
     hasEvictions = [true, true, true, true, true];
 
@@ -130,7 +135,7 @@ export default class RentalDataStore {
         this.hasEvictions[unitIndex] = false;
     }
 
-    sendDataToNetlify() {
+    sendDataToNetlify(history) {
         const encode = (data) => {
             return Object.keys(data)
                 .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -140,7 +145,9 @@ export default class RentalDataStore {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "rental-data", ...this.data })
-        }).then(() => alert("Success!")).catch(error => alert(error));
+        }).then(action(response => {
+            history.push('/thanks', '');
+        })).catch(action(error => alert(error)));
     }
 }
 

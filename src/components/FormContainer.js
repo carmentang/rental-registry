@@ -129,6 +129,7 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           values={values}
+          history={this.props.history}
         />
       case 3:
         return <Thanks />
