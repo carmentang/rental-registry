@@ -145,7 +145,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 <Form.Label>Total additional charges</Form.Label>
               </Col>
             </Form.Row>
-            <h1>Rent Increase</h1>
+            <h1>Rent Increases</h1>
             <Form.Row>
               <Col>
                 <Form.Control type="date" onChange={this.props.handleChange(`unit-${unitIndex}-dateRentChanged`)}
@@ -154,7 +154,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 <Form.Label>Date of last effective rent increase/decrease</Form.Label>
               </Col>
               <Col>
-                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-rentChangeAmount`)}
+                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-rentChangeAmount`)}
                   defaultValue={values.rentChangeAmount}>
                 </Form.Control>
                 <Form.Label>Rent amount for month prior to rent increase/decrease</Form.Label>
@@ -163,7 +163,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-currentRentAmount`)}
                   defaultValue={values.currentRentAmount}>
                 </Form.Control>
-                <Form.Label>Rent Amount</Form.Label>
+                <Form.Label>Current rent amount</Form.Label>
               </Col>
             </Form.Row>
           </div>
