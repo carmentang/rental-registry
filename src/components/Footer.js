@@ -1,3 +1,4 @@
+  
 import React, { Component } from 'react';
 
 class Footer extends Component {
@@ -7,14 +8,11 @@ class Footer extends Component {
       year: new Date().getFullYear()
     }
   }
+
   render() {
     return (
-      <footer>
-        <ul className="site-link">
-          <li>
-            &copy; {this.state.year} TechEquity Collaborative
-          </li>
-        </ul>
+      <footer className="site-link centeredText">
+        &copy; {this.state.year} TechEquity Collaborative
       </footer>
     );
   }

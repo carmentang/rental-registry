@@ -1,6 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap';
+import Footer from './Footer';
 
 const years = [2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990]
 const yearsList = years.map((year) =>
@@ -28,82 +29,95 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
 
     return (
       <React.Fragment>
-        <Form className="formBody">
-          <h1 className="formHeader">Submit New Rental Registry Form</h1>
-          <hr />
-          <h1>Owner</h1>
-          <Row>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
-                defaultValue={values.ownerName} />
-              <Form.Label>Owner Name</Form.Label>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('ownership')}
-                defaultValue={values.ownership}>
-                <option></option>
-                <option>Sole Ownership</option>
-                <option>Joint Tenancy</option>
-                <option>Tenancy in Common</option>
-                <option>Tenants by Entirety</option>
-                <option>Community Property</option>
-              </Form.Control>
-              <Form.Label>Ownership Type</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('acquired')}
-                defaultValue={values.acquired}>
-                <option></option>
-                {yearsList}
-              </Form.Control>
-              <Form.Label>Year of Acquisition</Form.Label>
-            </Col>
-          </Row>
-          <h1>Rental Property Address</h1>
-          <Row>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('street')}
-                defaultValue={values.street} />
-              <Form.Label>Street</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('city')}
-                defaultValue={values.city} />
-              <Form.Label>City</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange('state')}
-                defaultValue={values.state} >
-                <option></option>
-                {statesList}
-              </Form.Control>
-              <Form.Label>State</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange('zipcode')}
-                defaultValue={values.zipcode} />
-              <Form.Label>Zipcode</Form.Label>
-            </Col>
-          </Row>
-          <br></br>
-          <div className="formSubmitContainer">
-            <h4> Does this property have more than one unit?</h4>
-            <Button className="submit-new-form formButton" onClick={this.saveAndContinueMultiple}>
-              <span>YES</span>
-            </Button>
-            <Button className="submit-new-form formButton" onClick={this.saveAndContinueSingle}>
-              <span>NO</span>
-            </Button>
+        <div className="wrapper wrapperBorder">
+          <div className="wrapperContent">
+            <Form className="formBody">
+              <h1 className="formHeader">Submit New Rental Registry Form</h1>
+              <hr />
+              <h4>Owner</h4>
+              <div className="gridWrapper">
+                <div className="grid2">
+                  <p>
+                    <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
+                      defaultValue={values.ownerName} />
+                    <Form.Label>Owner Name</Form.Label>                
+                  </p>
+                  <p>
+                    <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
+                    defaultValue={values.ownerName} />
+                    <Form.Label>Owner Name</Form.Label>
+                  </p>
+                </div>
+                <div className="grid2">
+                  <p>
+                    <Form.Control as="select" onChange={this.props.handleChange('ownership')}
+                      defaultValue={values.ownership}>
+                      <option></option>
+                      <option>Sole Ownership</option>
+                      <option>Joint Tenancy</option>
+                      <option>Tenancy in Common</option>
+                      <option>Tenants by Entirety</option>
+                      <option>Community Property</option>
+                    </Form.Control>
+                    <Form.Label>Ownership Type</Form.Label>
+                  </p>
+                  <p>
+                    <Form.Control as="select" onChange={this.props.handleChange('acquired')}
+                      defaultValue={values.acquired}>
+                      <option></option>
+                      {yearsList}
+                    </Form.Control>
+                    <Form.Label>Year of Acquisition</Form.Label>
+                  </p>
+                </div>
+              </div>
+
+              <h4>Rental Property Address</h4>
+              <div className="grid4">
+                <p>
+                  <Form.Control type="text" onChange={this.props.handleChange('street')}
+                    defaultValue={values.street} />
+                  <Form.Label>Street</Form.Label>
+                </p>
+                <p>
+                  <Form.Control type="text" onChange={this.props.handleChange('city')}
+                    defaultValue={values.city} />
+                  <Form.Label>City</Form.Label>              
+                </p>
+                <p>
+                  <Form.Control as="select" onChange={this.props.handleChange('state')}
+                    defaultValue={values.state} >
+                    <option></option>
+                    {statesList}
+                  </Form.Control>
+                  <Form.Label>State</Form.Label>              
+                </p>
+                <p>
+                  <Form.Control type="text" onChange={this.props.handleChange('zipcode')}
+                    defaultValue={values.zipcode} />
+                  <Form.Label>Zipcode</Form.Label>               
+                </p>
+              </div>
+            </Form>
+
+            <br></br>
+              <h4 className="blueText centeredText"> Does this property have more than one unit?</h4>
+              <div className="buttonWrapper">
+                <div className="buttonGrid">
+                  <Button className="submit-new-form homeButtons buttonColor buttons" onClick={this.saveAndContinueMultiple}>
+                    <span>YES</span>
+                  </Button>
+                  <Button className="submit-new-form homeButtons buttonColor buttons" onClick={this.saveAndContinueSingle}>
+                    <span>NO</span>
+                  </Button>              
+                </div>
+              </div>
           </div>
-        </Form>
-        <br></br>
+        </div>
+
       </React.Fragment>
     )
   }
 }));
 
 export default OwnerDetailForm;
-
-
