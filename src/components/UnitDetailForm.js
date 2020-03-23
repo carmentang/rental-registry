@@ -44,7 +44,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
     return (
       <React.Fragment>
         <Form className="formBody">
-          <h1>Occupancy</h1>
+          <h4>Occupancy</h4>
           <div className="minText">
             <div className="grid3">
               <p>
@@ -159,7 +159,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
               </p>
             </div>
 
-            <h1>Rent Increases</h1>
+            <h4>Rent Increases</h4>
             <div className="grid3">
               <p>
                 <Form.Control type="date" onChange={this.props.handleChange(`unit-${unitIndex}-dateRentChanged`)}
@@ -182,7 +182,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
             </div>
           </div>
 
-          <h1>Evictions</h1>
+          <h4>Evictions</h4>
           <div className="">
                 {this.props.store.hasEvictions[unitIndex-1] ? (
                   <div className={this.state.numEvictionRows === 0 ? "evictionButtonContainer" : "fullWidth"}>
@@ -191,7 +191,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                         <p>
                           Was there a tenancy termination in this unit in the prior calendar year?
                         </p>
-                        <div className="buttonWrrapp">
+                        <div className="buttonWrapper">
                           <div className="buttonGrid">
                             <Button className="buttons buttonColor" onClick={this.addEvictionRow}>
                               <span>YES</span>
@@ -209,7 +209,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                             {this.renderEvictionRows()}
                           </p>
                           <p>
-                            <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add More Tenancy Termination</Button>
+                            <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add Another Tenancy Termination</Button>
                           </p>
                         </div>
                     )}

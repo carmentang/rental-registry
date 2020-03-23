@@ -16,7 +16,6 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
     acquired: '',
     street: '',
     city: '',
-    state: '',
     zipcode: '',
     units: [
       {
@@ -85,7 +84,6 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       acquired,
       street,
       city,
-      state,
       zipcode,
       units,
       unitNumber,
@@ -113,7 +111,6 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       acquired,
       street,
       city,
-      state,
       zipcode,
       units,
       unitNumber,

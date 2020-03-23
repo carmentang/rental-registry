@@ -31,7 +31,6 @@ export default class RentalDataStore {
         'acquired': '',
         'street': '',
         'city': '',
-        'state': '',
         'zipcode': '',
         'unit-1-unitNumber': '',
         'unit-1-bedrooms': '',

@@ -6,10 +6,7 @@ const years = [2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010,
 const yearsList = years.map((year) =>
   <option>{year}</option>
 )
-const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-const statesList = states.map((state) =>
-  <option>{state}</option>
-)
+
 const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends Component {
   saveAndContinueMultiple = (e) => {
     e.preventDefault()
@@ -67,7 +64,7 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
               </div>
 
               <h4>Rental Property Address</h4>
-              <div className="grid4">
+              <div className="grid3">
                 <p>
                   <Form.Control type="text" onChange={this.props.handleChange('street')}
                     defaultValue={values.street} />
@@ -77,14 +74,6 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
                   <Form.Control type="text" onChange={this.props.handleChange('city')}
                     defaultValue={values.city} />
                   <Form.Label>City</Form.Label>              
-                </p>
-                <p>
-                  <Form.Control as="select" onChange={this.props.handleChange('state')}
-                    defaultValue={values.state} >
-                    <option></option>
-                    {statesList}
-                  </Form.Control>
-                  <Form.Label>State</Form.Label>              
                 </p>
                 <p>
                   <Form.Control type="text" onChange={this.props.handleChange('zipcode')}
