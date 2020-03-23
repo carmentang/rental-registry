@@ -7,7 +7,7 @@ import UnitDetailFormButton from './UnitDetailFormButton'
 
 const UnitDetails = inject('store')(observer(class UnitDetails extends Component {
   submitForm = (e) => {
-      this.props.store.sendDataToNetlify();
+      this.props.store.sendDataToNetlify(this.props.history);
     e.preventDefault()
     // submit function
   }

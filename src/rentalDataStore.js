@@ -16,6 +16,11 @@ export default MyClassName;
  */
 
 export default class RentalDataStore {
+
+    constructor(history) {
+        this.history = history;
+    }
+
     hasMultipleUnits = true;
     hasEvictions = [true, true, true, true, true];
 
@@ -36,8 +41,10 @@ export default class RentalDataStore {
         'unit-1-monthOccupied': '',
         'unit-1-yearOccupied': '',
         'unit-1-monthsRented': '',
-        'unit-1-previousJanRent': '',
-        'unit-1-collectedJanUtil': '',
+        'unit-1-currentJanRent': '',
+        'unit-1-includedUtilities': '',
+        'unit-1-additionalCharges': '',
+        'unit-1-totalAdditionalCharges': '',
         'unit-1-dateRentChanged': '',
         'unit-1-rentChangeAmount': '',
         'unit-1-currentRentAmount': '',
@@ -53,8 +60,10 @@ export default class RentalDataStore {
         'unit-2-monthOccupied': '',
         'unit-2-yearOccupied': '',
         'unit-2-monthsRented': '',
-        'unit-2-previousJanRent': '',
-        'unit-2-collectedJanUtil': '',
+        'unit-2-currentJanRent': '',
+        'unit-2-includedUtilities': '',
+        'unit-2-additionalCharges': '',
+        'unit-2-totalAdditionalCharges': '',
         'unit-2-dateRentChanged': '',
         'unit-2-rentChangeAmount': '',
         'unit-2-currentRentAmount': '',
@@ -70,8 +79,10 @@ export default class RentalDataStore {
         'unit-3-monthOccupied': '',
         'unit-3-yearOccupied': '',
         'unit-3-monthsRented': '',
-        'unit-3-previousJanRent': '',
-        'unit-3-collectedJanUtil': '',
+        'unit-3-currentJanRent': '',
+        'unit-3-includedUtilities': '',
+        'unit-3-additionalCharges': '',
+        'unit-3-totalAdditionalCharges': '',
         'unit-3-dateRentChanged': '',
         'unit-3-rentChangeAmount': '',
         'unit-3-currentRentAmount': '',
@@ -87,8 +98,10 @@ export default class RentalDataStore {
         'unit-4-monthOccupied': '',
         'unit-4-yearOccupied': '',
         'unit-4-monthsRented': '',
-        'unit-4-previousJanRent': '',
-        'unit-4-collectedJanUtil': '',
+        'unit-4-currentJanRent': '',
+        'unit-4-includedUtilities': '',
+        'unit-4-additionalCharges': '',
+        'unit-4-totalAdditionalCharges': '',
         'unit-4-dateRentChanged': '',
         'unit-4-rentChangeAmount': '',
         'unit-4-currentRentAmount': '',
@@ -104,8 +117,10 @@ export default class RentalDataStore {
         'unit-5-monthOccupied': '',
         'unit-5-yearOccupied': '',
         'unit-5-monthsRented': '',
-        'unit-5-previousJanRent': '',
-        'unit-5-collectedJanUtil': '',
+        'unit-5-currentJanRent': '',
+        'unit-5-includedUtilities': '',
+        'unit-5-additionalCharges': '',
+        'unit-5-totalAdditionalCharges': '',
         'unit-5-dateRentChanged': '',
         'unit-5-rentChangeAmount': '',
         'unit-5-currentRentAmount': '',
@@ -130,7 +145,7 @@ export default class RentalDataStore {
         this.hasEvictions[unitIndex] = false;
     }
 
-    sendDataToNetlify() {
+    sendDataToNetlify(history) {
         const encode = (data) => {
             return Object.keys(data)
                 .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -140,7 +155,9 @@ export default class RentalDataStore {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "rental-data", ...this.data })
-        }).then(() => alert("Success!")).catch(error => alert(error));
+        }).then(action(response => {
+            history.push('/thanks', '');
+        })).catch(action(error => alert(error)));
     }
 }
 

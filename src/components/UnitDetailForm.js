@@ -1,33 +1,9 @@
 import React, { Component } from 'react'
 import { Form, Col, Button } from 'react-bootstrap';
 import ReasonForEviction from './ReasonForEviction'
-import { inject, observer } from "mobx-react";
-import { monthList } from "../constants";
+import {inject, observer} from "mobx-react";
+import {monthList, yearsList, monthsRentedList, additionalChargesList, includedUtilitiesList} from "../constants";
 
-const days = ["", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
-const daysList = days.map((day) =>
-  <option>{day}</option>
-)
-
-const years = ["", 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990]
-const yearsList = years.map((year) =>
-  <option>{year}</option>
-)
-
-const monthsRented = ["", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-const monthsRentedList = monthsRented.map((month) =>
-  <option>{month}</option>
-)
-
-const vacancyDays = ["", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-const vacancyDaysList = vacancyDays.map((days) =>
-  <option>{days}</option>
-)
-
-const evictedTenants = ["", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const evictedTenantsList = evictedTenants.map((evicted) =>
-  <option>{evicted}</option>
-)
 
 const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Component {
   constructor(props) {
@@ -144,21 +120,33 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 </Form.Control>
                 <Form.Label># Months occupied last year</Form.Label>
               </Col>
-              <Col>
-                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-previousJanRent`)}
-                  defaultValue={values.previousJanRent}>
-                </Form.Control>
-                <Form.Label>January rent amount for current year</Form.Label>
-              </Col>
-              <Col>
-                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-collectedJanUtil`)}
-                  defaultValue={values.collectedJanUtil}>
-                </Form.Control>
-                <Form.Label>Utility Amount Collected in January</Form.Label>
-              </Col>
-            </Form.Row>
-          </div>
-
+          </Form.Row>
+          <Form.Row>
+            <Col>
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-currentJanRent`)}
+                defaultValue={values.currentJanRent}>
+              </Form.Control>
+              <Form.Label>January rent amount for current year</Form.Label>
+            </Col>
+            <Col>
+              <Form.Control as="select" multiple onChange={this.props.handleChange(`unit-${unitIndex}-includedUtilities`)}>
+                {includedUtilitiesList}
+              </Form.Control>
+              <Form.Label>January Utilities included in the rent (select all that apply)</Form.Label>
+            </Col>
+            <Col>
+              <Form.Control as="select" multiple onChange={this.props.handleChange(`unit-${unitIndex}-additionalCharges`)}>
+                {additionalChargesList}
+              </Form.Control>
+              <Form.Label>Additional charges from landlord, not included in rent (select all that apply)</Form.Label>
+            </Col>
+            <Col>
+              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-totalAdditionalCharges`)}
+                defaultValue={values.totalAdditionalCharges}>
+              </Form.Control>
+              <Form.Label>Total additional charges</Form.Label>
+            </Col>
+          </Form.Row>
           <h1>Rent Increase</h1>
           <div className="minText">
             <Form.Row>
