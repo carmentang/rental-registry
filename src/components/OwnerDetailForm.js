@@ -41,11 +41,6 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
                       defaultValue={values.ownerName} />
                     <Form.Label>Owner Name</Form.Label>                
                   </p>
-                  <p>
-                    <Form.Control type="text" onChange={this.props.handleChange('ownerName')}
-                    defaultValue={values.ownerName} />
-                    <Form.Label>Owner Name</Form.Label>
-                  </p>
                 </div>
                 <div className="grid2">
                   <p>
