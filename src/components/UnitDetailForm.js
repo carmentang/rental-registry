@@ -28,11 +28,11 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
   renderEvictionRows() {
     var evictionRows = [];
     for (let i = 0; i < this.state.numEvictionRows; i++) {
-        evictionRows.push(<ReasonForEviction
-            handleChange={this.props.handleChange}
-            unitIndex={this.props.index}
-            evictionIndex={i+1}
-        />);
+      evictionRows.push(<ReasonForEviction
+        handleChange={this.props.handleChange}
+        unitIndex={this.props.index}
+        evictionIndex={i + 1}
+      />);
     }
     return evictionRows;
   }
@@ -45,78 +45,81 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
       <React.Fragment>
         <Form className="formBody">
           <h1>Occupancy</h1>
-          <Form.Row>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-unitNumber`)}
-                defaultValue={values.unitNumber} />
-              <Form.Label>Unit #</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bedrooms`)}
-                defaultValue={values.bedrooms}>
-                <option></option>
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6+</option>
-              </Form.Control>
-              <Form.Label># Bedrooms</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bathrooms`)}
-                defaultValue={values.bathrooms}>
-                <option></option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4+</option>
-              </Form.Control>
-              <Form.Label># Bathrooms</Form.Label>
-            </Col>
-          </Form.Row>
-          <Form.Row>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatus`)}
-                defaultValue={values.occupancyStatus}>
-                <option></option>
-                <option>Manager/Owner unit</option>
-                <option>Occupied</option>
-                <option>Vacant</option>
-                <option>Other</option>
-              </Form.Control>
-              <Form.Label>Occupancy Status</Form.Label>
-            </Col>
-            {values.values.occupancyStatus === "Other" &&
+          <div className="minText">
+            <Form.Row>
               <Col>
-                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatusDetails`)}
-                  defaultValue={values.occupancyStatusOther} />
-                <Form.Label>Please describe occupancy status:</Form.Label>
+                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-unitNumber`)}
+                  defaultValue={values.unitNumber} />
+                <Form.Label>Unit #</Form.Label>
               </Col>
-            }
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthOccupied`)}
-                defaultValue={values.monthOccupied}>
-                {monthList}
-              </Form.Control>
-              <Form.Label>Start month of occupancy</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-yearOccupied`)}
-                defaultValue={values.yearOccupied}>
-                {yearsList}
-              </Form.Control>
-              <Form.Label>Start year of occupancy</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthsRented`)}
-                defaultValue={values.monthsRented}>
-                {monthsRentedList}
-              </Form.Control>
-              <Form.Label># Months occupied last year</Form.Label>
-            </Col>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bedrooms`)}
+                  defaultValue={values.bedrooms}>
+                  <option></option>
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6+</option>
+                </Form.Control>
+                <Form.Label># Bedrooms</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-bathrooms`)}
+                  defaultValue={values.bathrooms}>
+                  <option></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4+</option>
+                </Form.Control>
+                <Form.Label># Bathrooms</Form.Label>
+              </Col>
+            </Form.Row>
+            <Form.Row>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatus`)}
+                  defaultValue={values.occupancyStatus}>
+                  <option></option>
+                  <option>Manager/Owner unit</option>
+                  <option>Occupied</option>
+                  <option>Vacant</option>
+                  <option>Other</option>
+                </Form.Control>
+                <Form.Label>Occupancy Status</Form.Label>
+              </Col>
+              {values.values.occupancyStatus === "Other" &&
+                <Col>
+                  <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatusDetails`)}
+                    defaultValue={values.occupancyStatusOther} />
+                  <Form.Label>Please describe occupancy status:</Form.Label>
+                </Col>
+              }
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthOccupied`)}
+                  defaultValue={values.monthOccupied}>
+                  {monthList}
+                </Form.Control>
+                <Form.Label>Start month of occupancy</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-yearOccupied`)}
+                  defaultValue={values.yearOccupied}>
+                  {yearsList}
+                </Form.Control>
+                <Form.Label>Start year of occupancy</Form.Label>
+              </Col>
+            </Form.Row>
+            <Form.Row>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-monthsRented`)}
+                  defaultValue={values.monthsRented}>
+                  {monthsRentedList}
+                </Form.Control>
+                <Form.Label># Months occupied last year</Form.Label>
+              </Col>
           </Form.Row>
           <Form.Row>
             <Col>
@@ -145,35 +148,39 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
             </Col>
           </Form.Row>
           <h1>Rent Increase</h1>
-          <Form.Row>
-            <Col>
-              <Form.Control type="date" onChange={this.props.handleChange(`unit-${unitIndex}-dateRentChanged`)}
-                defaultValue={values.dateRentChanged}>
-              </Form.Control>
-              <Form.Label>Date of last effective rent increase/decrease</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-rentChangeAmount`)}
-                defaultValue={values.rentChangeAmount}>
-              </Form.Control>
-              <Form.Label>Rent amount for month prior to rent increase/decrease</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-currentRentAmount`)}
-                defaultValue={values.currentRentAmount}>
-              </Form.Control>
-              <Form.Label>Rent Amount</Form.Label>
-            </Col>
-          </Form.Row>
+          <div className="minText">
+            <Form.Row>
+              <Col>
+                <Form.Control type="date" onChange={this.props.handleChange(`unit-${unitIndex}-dateRentChanged`)}
+                  defaultValue={values.dateRentChanged}>
+                </Form.Control>
+                <Form.Label>Date of last effective rent increase/decrease</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control as="select" onChange={this.props.handleChange(`unit-${unitIndex}-rentChangeAmount`)}
+                  defaultValue={values.rentChangeAmount}>
+                </Form.Control>
+                <Form.Label>Rent amount for month prior to rent increase/decrease</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-currentRentAmount`)}
+                  defaultValue={values.currentRentAmount}>
+                </Form.Control>
+                <Form.Label>Rent Amount</Form.Label>
+              </Col>
+            </Form.Row>
+          </div>
+
           <h1>Evictions</h1>
-          <Form.Row>
-              {this.props.store.hasEvictions[unitIndex-1] ? (
+          <div className="minText">
+            <Form.Row>
+              {this.props.store.hasEvictions[unitIndex - 1] ? (
                 <div className={this.state.numEvictionRows === 0 ? "evictionButtonContainer" : "fullWidth"}>
                   {this.state.numEvictionRows === 0 ? (
                     <div>
                       <p>
                         Was there a tenancy termination in this unit in the prior calendar year?
-                      </p>
+                        </p>
                       <Button className="submit-new-form formButton" onClick={this.addEvictionRow}>
                         <span>YES</span>
                       </Button>
@@ -188,10 +195,11 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                           <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add More Tenancy Termination</Button>
                         </Form.Row>
                       </div>
-                  )}
+                    )}
                 </div>
               ) : <Col>No eviction data for this unit</Col>}
-          </Form.Row>
+            </Form.Row>
+          </div>
         </Form>
       </React.Fragment>
     )
