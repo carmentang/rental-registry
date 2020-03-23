@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import ReasonForEviction from './ReasonForEviction'
 import {inject, observer} from "mobx-react";
 import {monthList, yearsList, monthsRentedList, additionalChargesList, includedUtilitiesList} from "../constants";
