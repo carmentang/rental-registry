@@ -29,9 +29,10 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
         monthOccupied: '',
         yearOccupied: '',
         monthsRented: Number,
-        previousJanRent: '',
         currentJanRent: '',
-        collectedJanUtil: '',
+        includedUtilities: '',
+        additionalCharges: '',
+        totalAdditionalCharges: '',
         dateRentChanged: '',
         rentchangeAmount: Number,
         numberOfEvictions: Number,
@@ -55,9 +56,24 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
   //   })
   // }
 
+  handleMultiSelect = options => {
+    let result = '';
+    for (let i = 0; i < options.length; i++) {
+      const option = options[i];
+      if (option.selected) {
+        if (result.length > 0) {
+          result += ', ';
+        }
+        result += option.label;
+      }
+    }
+    return result;
+  };
+
   handleChange = input => event => {
-    this.setState({ [input]: event.target.value })
-    this.props.store.updateValue(input, event.target.value)
+    const value = event.target.type !== "select-multiple" ? event.target.value : this.handleMultiSelect(event.target.options);
+    this.setState({ [input]: value });
+    this.props.store.updateValue(input, value);
   }
 
 
@@ -80,9 +96,10 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       monthOccupied,
       yearOccupied,
       monthsRented,
-      previousJanRent,
       currentJanRent,
-      collectedJanUtil,
+      includedUtilities,
+      additionalCharges,
+      totalAdditionalCharges,
       monthRentChanged,
       dateRentChanged,
       rentChangeAmount,
@@ -107,9 +124,10 @@ const FormContainer = inject('store')(observer(class FormContainer extends Compo
       monthOccupied,
       yearOccupied,
       monthsRented,
-      previousJanRent,
       currentJanRent,
-      collectedJanUtil,
+      includedUtilities,
+      additionalCharges,
+      totalAdditionalCharges,
       monthRentChanged,
       dateRentChanged,
       rentChangeAmount,
