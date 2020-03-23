@@ -43,26 +43,31 @@ const UnitDetails = inject('store')(observer(class UnitDetails extends Component
       <React.Fragment>
         {this.renderInvisibleFormForNetlify()}
         <Header />
-        <h1 className="formHeader">Submit New Rental Registry Form</h1>
-        <hr />    
-        {this.state.unitDetailFormRows.map((r, index) => (
-          <UnitDetailForm
+        <div className="wrapper wrapperBorder">
+          <h1 className="formHeader">Submit New Rental Registry Form</h1>
+          <hr />    
+          {this.state.unitDetailFormRows.map((r, index) => (
+            <UnitDetailForm
+              nextStep={this.props.nextStep}
+              handleChange={this.props.handleChange}
+              values={this.props}
+              index={index+1}
+            />
+          ))}
+          <UnitDetailFormButton
             nextStep={this.props.nextStep}
             handleChange={this.props.handleChange}
             values={this.props}
-            index={index+1}
+            unitDetailFormRows={this.state.unitDetailFormRows}
+            addAnotherUnit={this.addAnotherUnit}
+            submitForm={this.submitForm}
+            hasMultipleUnits={this.props.store.hasMultipleUnits}
           />
-        ))}
-        <UnitDetailFormButton
-          nextStep={this.props.nextStep}
-          handleChange={this.props.handleChange}
-          values={this.props}
-          unitDetailFormRows={this.state.unitDetailFormRows}
-          addAnotherUnit={this.addAnotherUnit}
-          submitForm={this.submitForm}
-          hasMultipleUnits={this.props.store.hasMultipleUnits}
-        />
-        <Footer />
+          <div className="footer">
+            <Footer />
+          </div>
+        </div>
+
       </React.Fragment>
     )
   }

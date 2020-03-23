@@ -4,18 +4,22 @@ import Footer from './Footer';
 import NewFormButton from './NewFormButton'
 
 const Thanks = () => {
-  return <div class="wrapper">
+  return <div>
     <Header />
-    <div className="homepage">
-      <h1 className="homepage-title">Thank you for Submitting Your Form</h1>
-      <hr />
-      <p className="homepage-body">
-        <div>
-          <NewFormButton />
+    <div className="wrapper wrapperBorder">
+      <div className="homepage">
+        <h1 className="homepage-title formHeader">Thank you for Submitting Your Form</h1>
+        <hr />
+        <div className="homeButtonWrapper">
+          <div className="buttonGrid">
+            <NewFormButton />
+          </div>
         </div>
-      </p>
+      </div>
+      <div className="footer">
+          <Footer />
+      </div>
     </div>
-    <Footer />
   </div>
 }
 

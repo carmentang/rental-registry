@@ -4,26 +4,22 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TechEquityLogo from '../images/tech-equity.png';
 
-
-
-
 const About = () => {
 
-
-  return <div class="wrapper">
+  return <div>
     <Header />
-    <div className="homepage">
-      <h1 className="homepage-title">About</h1>
-      <hr />
-      <p className="homepage-body">
-        <span> * Blurb on AB 724*</span>
-      </p>
-      <br></br>
-      <p className="homepage-body">
-        <span> * Blurb about Tech Equity and Volunteers*</span>
-      </p>
-      <div>
-      <img style={{ height: 100 }} alt="Tech Equity Collaborative Logo" src={TechEquityLogo}></img>
+    <div className="wrapper wrapperBorder">
+      <div className="homepage">
+        <h1 className="homepage-title formHeader">About</h1>
+        <hr />
+        <div className="homepage-body">
+          <p className="centeredText">* Blurb on AB 724*</p>
+          <p className="centeredText">* Blurb about Tech Equity and Volunteers*</p>
+        </div>
+          <img className="logo" alt="Tech Equity Collaborative Logo" src={TechEquityLogo}></img>
+      </div>
+      <div className="footer">
+        <Footer />
       </div>
     </div>
     

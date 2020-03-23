@@ -8,13 +8,13 @@ export class UnitDetailFormButton extends Component {
         <Form>
             {this.props.hasMultipleUnits ? (
               <Form.Row>
-                <Button className="submit-new-form formButtonSubmit" onClick={this.props.addAnotherUnit}>
+                <Button className="wideButton buttonColor" onClick={this.props.addAnotherUnit}>
                   <span>+ Add Another Unit</span>
                 </Button>
               </Form.Row>
             ) : null}
           <Form.Row>
-            <Button className="submit-new-form formButtonSubmit" onClick={this.props.submitForm}>
+            <Button className="wideButton buttonColor" onClick={this.props.submitForm}>
               <span>Submit Form</span>
             </Button>
           </Form.Row>
@@ -26,5 +26,3 @@ export class UnitDetailFormButton extends Component {
 }
 
 export default UnitDetailFormButton
-
-

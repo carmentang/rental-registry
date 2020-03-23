@@ -17,11 +17,11 @@ export const monthsRentedList = monthsRented.map((month) =>
 
 const includedUtilities = ['Electricity', 'Gas', 'Internet', 'Parking', 'Trash', 'Water'];
 export const includedUtilitiesList = includedUtilities.map((utility) =>
-    <option>{utility}</option>
+    <option className="minText">{utility}</option>
 );
 
 const additionalCharges = [...includedUtilities];
 additionalCharges.splice(4, 0, 'Pet');
 export const additionalChargesList = additionalCharges.map((charge) =>
-    <option>{charge}</option>
+    <option className="minText">{charge}</option>
 );
