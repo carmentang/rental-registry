@@ -90,7 +90,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                 </Form.Control>
                 <Form.Label>Occupancy Status</Form.Label>
               </Col>
-              {values.values.occupancyStatus === "Other" &&
+              {this.props.store.data[`unit-${unitIndex}-occupancyStatus`] === "Other" &&
                 <Col>
                   <Form.Control type="text" onChange={this.props.handleChange(`unit-${unitIndex}-occupancyStatusDetails`)}
                     defaultValue={values.occupancyStatusOther} />
