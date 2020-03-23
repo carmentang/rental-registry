@@ -209,7 +209,7 @@ const UnitDetailForm = inject('store')(observer(class UnitDetailForm extends Com
                             {this.renderEvictionRows()}
                           </p>
                           <p>
-                            <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add More Tenancy Termination</Button>
+                            <Button variant="link" size="sm" onClick={this.addEvictionRow}>+ Add Another Tenancy Termination</Button>
                           </p>
                         </div>
                     )}
