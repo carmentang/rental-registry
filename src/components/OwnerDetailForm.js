@@ -67,7 +67,7 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
               </div>
 
               <h4>Rental Property Address</h4>
-              <div className="grid4">
+              <div className="grid3">
                 <p>
                   <Form.Control type="text" onChange={this.props.handleChange('street')}
                     defaultValue={values.street} />
@@ -77,14 +77,6 @@ const OwnerDetailForm = inject('store')(observer(class OwnerDetailForm extends C
                   <Form.Control type="text" onChange={this.props.handleChange('city')}
                     defaultValue={values.city} />
                   <Form.Label>City</Form.Label>              
-                </p>
-                <p>
-                  <Form.Control as="select" onChange={this.props.handleChange('state')}
-                    defaultValue={values.state} >
-                    <option></option>
-                    {statesList}
-                  </Form.Control>
-                  <Form.Label>State</Form.Label>              
                 </p>
                 <p>
                   <Form.Control type="text" onChange={this.props.handleChange('zipcode')}
